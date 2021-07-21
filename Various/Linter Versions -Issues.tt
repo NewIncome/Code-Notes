@@ -1,0 +1,14 @@
+Heroku
+-------
++ Ruby: 2.6.6, 2.7.2  &  3.0.0
+    4 React
++ Failed to load config "airbnb" to extend from.
+  Referenced from: /app/.eslintrc.json
+  -> 
+
+GitHub : Eslint
+----------------
+Ruby: 2.3 ... 2.7   (4 Rubocop)
+
+
+5288519111130093

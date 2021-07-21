@@ -1,0 +1,49 @@
+$ heroku create
+$ git push -u heroku master  -- This is only if you want to push Master
+
+$ heroku pg:reset DATABASE
+$ heroku run rails db:migrate
+$ heroku run rails db:seed
+$ heroku restart
+
+$ heroku open
+-------------------help commands----------------------
+$ heroku logs --tail   ---(to see the live logs)
+$ heroku logs --tail --app=appname   ---(to see a different apps log)
+
+heroku run rake assets:precompile RAILS_ENV=production
+
+(1)git remote rm heroku   ---(to delete a heroku remote if you will change it)
+(2)heroku git:remote -a thawing-inlet-61413   ---(the name 'only' of the heroku remote)
+
+$ git push heroku testbranch:master   ---(to push a different branch)
+
+$ git config --list | grep heroku   ---(to know which remote url has been set, if any)
+
+
+
+1- Description of the project
+    - name?         
+    - what for?     Microverse Rails Capstone
+    - What it does?
+
+2- Demo of the features
+    1) Create User
+    2) Create group
+    3) Create Transaction
+    4) Views -Profile, -All_Trans, -All_UnGrouped_Trans, -All_Groups
+
+3- My Added Feature
+    Icons, by www.Flaticons.com
+
+4- N+1 Problem.
+    Is to make a query for each element of a long table to get the info from all the elements.
+    I believe that is solved by making a query to the whole table and 
+
+
+
+
+
+
+
+

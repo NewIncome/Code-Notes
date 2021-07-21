@@ -1,0 +1,82 @@
+RAILS Proj setup
+-----------------
+            >>>>>>>>>>>>>>> PostgreSQL config <<<<<<<<<<<<<<<
+1. Install PostgreSQL and it's dependencies
+    $ sudo apt install postgresql postgresql-contrib libpq-dev
+2. Create a new Role (-s 4superUserPrivileges) and set it's Password (-P)
+    $ sudo -u postgres createuser -s <roleoruserame>
+3. Enter PostgreSQL
+    $ sudo -u postgres psql
+3a. If desired, create an alias in your .bashrc called "psql", to enter PostgreSQL
+4. Set a password to the new user
+    postgres=# \password <roleorusername>
+5. Create the new Rails app
+    $ rails new <appname> -d=postgresql
+            =====----- to Set the DB configuration -----=====   <--- ¡¡¡Very Important!!!
+6. modify the pg_hba.conf file for correct user/role access to the DataBase
+    $ sudo vi ~/../../etc/postgresql/9.6/main/pg_hba.conf
+    line:
+    # TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+    # "local" is for Unix domain socket connections only
+    local   all             all                                     peer   <-- 'peer' to md5
+7. RESTART!!!!! YOUR MACHINE/COUMPUTER
+8. store your postgres-role password in an environment variable
+    $ echo 'export APPNAME_DATABASE_PASSWORD="PostgreSQL_Role_Password"' >> ~/.zshrc
+8a. or in your .bashrc or .zshrc file add at the end
+    export PROJECTNAME_DATABASE_PASSWORD="role-password"
+//IMPORTANT: name syntax for ENV_VARS is UpperCase and can only separate name w/underscore!!!
+9. to refresh environment variables
+    $ source ~/.zshrc
+10. in config/database.yml
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>   <-- after this line, add:
+    username: sammy
+    password: <%= ENV['APPNAME_DATABASE_PASSWORD'] %>
+    ======= =====----- =========================== -----===== =======
+
+---------------------------- Rails Basic Config, Set ----------------------------
+---------------------------------------------------------------------------------
+---------------------------- MVC ----------------------------
+    * Plan&Design the Models        * Create Models
+    * Plan&Design the Views         * Create Views
+    * Plan&Design the Controllers   * Create Controllers
+         Model           Views           Controllers
+        -------         -------         -------------
+        + Relations     + DefView        + Logic
+        + DB            + Pages
+                        + Routes
+
+1. 
+
+
+
+
+===----- PostgreSQL commands -----===
+$ \q    <-- quit/exit
+$ \du   <-- get a list of all the roles
+$ \dt   <-- see all tables
+
+ALTER ROLE username WITH PASSWORD 'password';     <-- to change a user/role's password
+
+pg_config --version     <-- to check your PostgreSQL version
+CTRL+D          <-- to exit postgres
+>>>>>>>>>> with MySQL <<<<<<<<<<
+
+
+
+Notes
+------
++ development.rb
+    add at end:
+    # Allow connections to local server
+    config.hosts.clear
++ 
+
+
+
+
+
+(---------- + Devise ----------)
+
+
+

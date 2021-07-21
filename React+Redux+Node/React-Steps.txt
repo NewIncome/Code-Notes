@@ -1,0 +1,97 @@
+                                            ***** the order of the imports MATTERS!!! A LOOOOOOOOOT !!!!!!!
+REACT Steps
+1. create-react-app
+(2. delete unnecessary files) this was stupidly written by Microverse
+3. add additional npm packages. ie:
+  - prop-types, big.js, stuff for css or file loader
+4.- add necesary additional files(license & .env) and linters.yml and so
+5. deploy to heroku
+6a. git commit
+6b. push to Github
+7. git flow (create develop and 1st feature branch)
+8. add scripts to package.json for linters
+
+    CODE
+1.-
+    npx create-react-app my-app
+     or
+  npx create-react-app <app-name> --template redux
+  cd my-app
+3.-
+  npm install --save prop-types
+  ----- If using Redux -----
+  npm i -S redux
+  npm i -S react-redux
+  npm i -D redux-devtools
+  npm install @reduxjs/toolkit
+  npm i node-sass
+4.-
+  add LICENSE file
+  add .env file
+  add .github/workflows/linters.yml
+   follow instructions on linters.yml for adding linters (
+    eslint and
+    stylelint)
+5.-
+  deploy to Heroku:
+    (to use mars/buildpack w-nginx:
+    heroku create $MY-APP_NAME --buildpack mars/create-react-app
+     or normal deployment (without default name) use the above, DO NOT USE THIS OPTION
+    heroku create -b https://github.com/mars/create-react-app-buildpack.git
+    )
+    git push heroku master
+    heroku open
+6.-
+  git add .
+  git commit -m "react-create-app on Heroku"
+  git remote add origin https://github.com/...
+  git push -u origin master
+7.-
+  git flow init -d
+  git push -u origin develop
+  git flow feature start <featureName>
+  git push -u origin feature/<featureName>
+8.-
+{ ...
+  "eslint": "npx eslint .",
+  "eslint-fix": "npx eslint . --fix",
+  "stylelint": "npx stylelint **/*.{css,scss}",
+  "stylelint-fix": "npx stylelint **/*.{css,scss} --fix"
+}
+
+
+STUPID ESLINT ERROR FOR REACT
+Fixed with
+- the correct updated version number of ...
+OR
+- changin the '∞' sign with: Number.MAX_SAFE_INTEGER
+
+
+=====================================================================
+-----------------------------  T I P s  -----------------------------
+=====================================================================
+*
+* To re-render a child component you need to give it a state as prop.
+* Redux. A new state property is made in the return of a Reducer.
+* Redux. In Reducers, you only get the actions values inside the
+   switch-case
+
+
+   
+Define your
+  - Components
+  - Store Elements
+  - Actions
+  - Reducers
+
+
+
+Engel
+Sonne
+Du Hast
+Mein Teil
+Ich Will
+Radio
+
+~Rosenrot
+

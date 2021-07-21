@@ -1,0 +1,82 @@
+Code Steps:
+1.- Define an action type
+2.- Define an action creator
+3.- Define a reducer depending on the action to take with the state
+4.- Create the Redux Store
+...
+
+
+Initialize Project
+-----------------------
+1.- npx create-react-app my-app
+2.- npm i redux react-redux redux-thunk prop-types react-router-dom node-sass
+    --- Redux Dependencies ---
+      + redux
+      + react-redux
+      + redux-thunk        // allows to write action creators that return a function instead of an action
+      + prop-types
+      + react-router-dom   // for routes
+3.- npm i -D redux-devtools
+    --- Redux devDependencies ---
+      + redux-devtools
+4.- Add .github/workflows/linters.yml && install Linters
+5.- Add scripts to package.json for linters
+  { ...
+    "eslint": "npx eslint .",
+    "eslint-fix": "npx eslint . --fix",
+    "stylelint": "npx stylelint **/*.{css,scss}",
+    "stylelint-fix": "npx stylelint **/*.{css,scss} --fix"
+  }
+5a.- Modify the version of eslint to eslint@6.8.x
+6.- Add LICENSE and .env file
+7.- Create Dir's
+    - actions
+     |-  index.js
+     |-  types.js
+    - components
+    - containers
+    - reducers
+     |-  index.js
+    - styles
+    - utils
+     |-  index.js
+8.- heroku create $MY-APP_NAME --buildpack mars/create-react-app
+    git push heroku master      // to test the live version with the basic requirements on MasterBranch
+10.- git add .
+     git commit -m "react-create-app on Heroku"
+     git remote add origin https://github.com/...
+     git push -u origin master
+11.- git flow init -d
+     git push -u origin develop
+     git flow feature start <featureName>
+     git push -u origin feature/<featureName>
+
+12.- Create a development profile
+React DOM automatically supports profiling in development mode for v16.5+, but since profiling adds some small additional overhead it is opt-in for production mode.
+Creating a profiling build can be done by
+    npm run build -- --profile
+
+
+
+Install
+- Redux library
+      $ npm i -S redux
+- Official package that lets your React components interact with a Redux store by reading pieces of state and dispatching actions to update the store
+      $ npm i -S react-redux
+- 
+      $ npm i -D redux-devtools
+- recommended approach for writing Redux logic. It contains packages and functions that we think are essential for building a Redux app.
+      $ npx create-react-app my-app --template redux
+          or  to install in an existing app
+      $ npm install @reduxjs/toolkit
+
+    
+    
+Define your
+------------
+  - Components
+  - Store Elements
+  - Actions
+  - Reducers
+
+

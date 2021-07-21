@@ -1,0 +1,10 @@
+===================
+Shopify Steps
+===================
+-------------------
+Create a DEV STORE
+-------------------
+1.- Add a Store { storeName:  JsFirstStore,
+                   userName:       myEmail,
+                       pass:    m1p@s$4Dev, } .myshopify.com
+2.- 

@@ -1,0 +1,26 @@
+POSTGRESQL
+
+Notes
+------
++ Rails will use the PostgreSQL role that you created for your Ubuntu username
++ Alter the database configuration file of your project
++ Then create your databases
+
+Config Changes
+---------------
+1.- Add the password for the PostgreSQL role you created in the last step
+2.- Store the password in an environment variable. This password is the one created when installed postgres and created the 1st superUser.
+  * rather than to write it directly in your configuration file, to keep sensitive information like passwords safe
+3.- Export the variable for your current session
+4.- Alter the configuration file.
+5.- In the config/database.yml, change the username & password (call env variable)
+
+
+Steps, Code
+------------
+1(2.-). echo 'export APPNAME_DATABASE_PASSWORD="PostgreSQL_Role_Password"' >> ~/.bashrc
+  * APPNAME = the name of your app
+  * PostgreSQL_Role_Password = the password to be used
+2(3.-). source ~/.bashrc
+3(5.-). password: <%= ENV['APPNAME_DATABASE_PASSWORD'] %>
+

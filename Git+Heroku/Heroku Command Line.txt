@@ -1,0 +1,33 @@
+Empty:                  Ocupied:              + .herokuapp.com
+------                  --------
+secure-lake-87647       agile-sea-80673
+peaceful-hamlet-51439   cryptic-shore-97676
+sleepy-badlands-14585
+
+-------------------
+HEROKU Command line
+-------------------
+
+$ heroku create
+$ git push -u heroku master  -- This is only if you want to push Master
+
+$ heroku pg:reset DATABASE
+$ heroku run rails db:migrate
+$ heroku run rails db:seed
+$ heroku restart
+
+$ heroku open
+-------------------help commands----------------------
+$ heroku logs --tail   ---(to see the live logs)
+$ heroku logs --tail --app=appname   ---(to see a different apps log)
+
+heroku run rake assets:precompile RAILS_ENV=production
+
+(1)git remote rm heroku   ---(to delete a heroku remote if you will change it)
+
+    for an Existing HEroku app, to Add a 'Remote' to a local repo
+(2)heroku git:remote -a thawing-inlet-61413   ---(the name 'only' of the heroku remote)
+
+$ git push heroku testbranch:master   ---(to push a different branch)
+
+$ git config --list | grep heroku   ---(to know which remote url has been set, if any)

@@ -1,0 +1,91 @@
+==========================
+Rails API_with_Auth setup
+==========================
+
+Step 1: Create the application in API mode
+　ー+   $ rails new anything_api -T -d postgresql --api
+       - -T flag is used to skip Rails default testing library as we’ll be using RSpec
+       - -d postgresql flag and val, to predefine a DataBase to be used
+Step 2: Create the initial commit
+　二+   $ git add .
+　二+   $ git commit -m "initial commit"
+Step 3: Add the devise_auth_token gem and bundle (do it in another branch)
+  三+   $ git branch add_auth && git checkout add_auth
+  三+   ./Gemfile <-- gem 'devise_token_auth'
+  三+   $ bundle install
+Step 4: Setup Database
+　四+   $ rails db:setup
+(      IF it Does Not work, && NOT the 1st time using PostgreSQL:
+      四1. Create a new Role (-s 2giveSuperUserPrivileges) and set it's Password (-P)
+          $ sudo -u postgres createuser -s <roleoruserame>
+      四2. Enter PostgreSQL (-u as SuperUser)
+          $ sudo -u postgres psql   ||  $ psql
+      四3. Set a password to the new user (IF name with caps or special chars, between "": "userRole")
+          postgres=# \password <"roleorusername">
+      四4. Store Role & password in an ENV variable
+      //IMPORTANT: name syntax for ENV_VARS is UpperCase and can only separate name w/underscore!!!
+          $ echo 'export APPNAME_DATABASE_PASSWORD="PostgreSQL_Role_Password"' >> ~/.zshrc
+            ||
+          /.zshrc --> export PROJECTNAME_DATABASE_PASSWORD="role-password"
+      四5. Refresh environment variables
+          $ source ~/.zshrc
+      四6. Edit DB file in project: config/database.yml
+          pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>   <-- after this line, add:
+          username: sammy
+          password: <%= ENV['APPNAME_DATABASE_PASSWORD'] %>
+)
+Step 5: Install the AUTHENTICATION gem ('User'<-modelToBeUsed, 'auth'->path at which to mount the authentication routes: "http://localhost:3000/auth")
+　五+   $ rails g devise_token_auth:install User auth
+      // generates: a model, && config/initializers/devise_auth_token.rb, && migration file db/migrat
+    Edit Migration File :: add used fields by devise_trackable module
+　五+   create_table(:users) do |t|
+       # some other codes...
+       t.integer  :sign_in_count, default: 0, null: false
+       t.datetime :current_sign_in_at
+       t.datetime :last_sign_in_at
+       t.inet     :current_sign_in_ip
+       t.inet     :last_sign_in_ip
+       end
+Step 6: Update the model generated (User)
+　六+   class User < ActiveRecord::Base
+        extend Devise::Models #added this line to extend devise model
+        # Include default devise modules. Others available are:
+        # :confirmable, :lockable, :timeoutable and :omniauthable
+        devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+        include DeviseTokenAuth::Concerns::User
+      end
+Step 7: Run the migration
+　七+   $ rails db:migrate
+Step 8: Versioning: Update config/routes.rbfile to this:
+　八+   namespace :api do
+        scope :v1 do
+          mount_devise_token_auth_for 'User', at: 'auth'
+        end
+      end
+Step 9: Configure the app to allow cross-origin request using Rack-cors gem;
+　九+   //Uncomment or add this to the Gemfile
+        gem 'rack-cors'//Add this to config/application.rb
+        config.middleware.use Rack::Cors do
+          allow do
+            origins '*' 
+            resource '*',
+            headers: :any,
+            expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+            methods: [:get, :post, :options, :delete, :put, :patch]
+          end
+        end
+// This configuration allows any origin to access the api but in most cases, you might not want this behaviour, so you might consider setting it to your-frontend-origin-url.com if that fits your use case
+
+DONE!!!! with configurations !!!
+// to view all the endpoint for the authentication routes, run:
+      $ rails routes | grep devise
+
+
+
+====----- PostgreSQL commands -----====
+$ \q    <-- quit/exit
+$ \du   <-- get a list of all the roles
+$ \dt   <-- see all tables
+
+pg_config --version     <-- to check your PostgreSQL version
+========----------- -----------========

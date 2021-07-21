@@ -1,0 +1,73 @@
+{
+    "editor.tabSize": 2,
+    "window.zoomLevel": 1,
+    "emmet.includeLanguages": {
+            "html.erb": "html",
+            "erb": "html"
+            },
+    "files.associations": {
+        "*.erb": "erb"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+
+    // for safety-background images
+    "safetyBackground.enabled": true,
+    "safetyBackground.useFront": true,
+    "safetyBackground.useDefault": false,
+    "safetyBackground.customImages": [
+      "/home/ultrab/Pictures/beach_Mei_01.png",
+      "/home/ultrab/Pictures/Kiana_Kaslana-02.png",
+      "~/Pictures/Kiana_Kaslana-03.png"
+    ],
+    "safetyBackground.style": {
+      "content": "''",
+      "pointer-events": "none",
+      "position": "absolute",
+      "z-index": "99999",
+      "width": "100%",
+      "height": "100%",
+      "background-position": "100% 100%",
+      "background-repeat": "no-repeat",
+      "background-size": "200px",
+      "opacity": 0.3
+    },
+
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+
+    //Opacity for Icons from Material-Icons-Theme
+    "material-icon-theme": {
+      "folders.theme": "classic", //or "specific"
+      "opacity": 0.65
+    },
+    "eslint.alwaysShowStatus": true,
+    "eslint.format.enable": true,
+    "eslint.lintTask.enable": true,
+    "eslint.debug": true,
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "output.smartScroll.enabled": false,
+    "codestream.email": "alfredo_cardenas@live.com",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "liveServer.settings.wait": 1000,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "liveServer.settings.donotVerifyTags": true,
+    // didn't work
+    "terminal.integrated.cwd": "",
+    "terminal.integrated.shellArgs.linux": [],
+    "terminal.integrated.automationShell.linux": "",
+    "shellLauncher.shells.linux": [
+      {
+        "shell": "/usr/bin/zsh",
+        "args": ["-l"],
+        "label": "ZSH shell"
+      },
+      {
+        "shell": "/bin/bash",
+        "args": ["-l"],
+        "label": "Bash shell"
+      }
+    ],
+    "window.autoDetectColorScheme": true,
+}

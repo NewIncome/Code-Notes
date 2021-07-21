@@ -1,0 +1,49 @@
+NODE & nvm COMMANDS
+--------------------
+// check version
+node -v || node --version
+
+// list installed versions of node (via nvm)
+nvm ls
+
+// install specific version of node
+nvm install 6.9.2
+
+// set default version of node
+nvm alias default 6.9.2
+
+// switch version of node
+nvm use 6.9.1
+
+// list all available versions that are 'latest'
+nvm ls-remote | grep -i 'latest'
+
+// list all versions starting with v12
+nvm ls-remote | grep -i 'v12'
+
+
+
+RUBY & rbenv COMMANDS
+----------------------
+# list all available versions
+$ rbenv install -l
+
+# install a specific Ruby version
+$ rbenv install 2.3.0
+
+# Sets a local application-specific Ruby version, by writing the version name to a `.ruby-version`
+$ rbenv local 2.2.2
+
+# Sets the global version of Ruby to be used in all shells, by writing the version name to the `~/.rbenv/version` file
+$ rbenv global 2.2.1
+
+# Lists all Ruby versions known to rbenv
+$ rbenv versions
+
+# Displays the currently active Ruby versions
+$ rbenv version
+
+# Run this command after you install a new version of Ruby, or install a gem that provides commands.
+$ rbenv rehash
+
+

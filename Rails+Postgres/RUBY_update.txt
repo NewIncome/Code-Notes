@@ -1,0 +1,20 @@
+Update with RBENV
+
+1- list all the already installed ruby versions
+  $ rbenv versions
+2- list all the available versions for installation you have locally
+  $ rbenv install -l
+3- If the version you need is not visible, you need to get the Ruby 2.6.1 locally, to achieve this:
+  $ cd ~/.rbenv/plugins/ruby-build/ && git pull
+4- Now check -l again and install the required version, i.e.:
+  $ rbenv install 3.0.0
+5- setup that version to be the global ruby version of the system
+  $ rbenv global 3.0.0
+6- Now you have to rehash rbenv in order to install shims for all Ruby executables known to rbenv
+  $ rbenv rehash
+7- Finally, check the ruby version
+  $ ruby -v
+
+  
+- Change a local version of ruby
+  $ rbenv local 3.0.0

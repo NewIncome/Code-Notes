@@ -1,0 +1,9 @@
+ Install
+- npm install react-slick
+- npm install slick-carousel
+also install slick-carousel for css and font index.js
+- import "slick-carousel/slick/slick.css";
+- import "slick-carousel/slick/slick-theme.css";
+
+To use it import it with
+- import Slider from "react-slick";

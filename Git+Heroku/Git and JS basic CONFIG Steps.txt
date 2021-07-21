@@ -1,0 +1,51 @@
+Total (JS) Project Setup _with Github
+
+1- create project with Github (no readme)
+2- create directory
+3- create and edit Readme
+4- git init
+5- git add README.md
+6- git commit -m 'Initialization commit'
+7- git remote add origin <git_repo_link>    Git & Github basic
+8- git push -u origin master                ________________________
+9- git flow init -d                         Git Flow
+10- git push -u origin develop
+11- change the default branch in github
+12-       Create Basic Files and Dirs
+13- git flow feature start <new_branch_name>
+14- git push -u origin feature/<new_branch_name>
+
+          Create Basic Files and Dirs
+  basic files to be shared throughout the project   ________________
+  - 1. create the dirs and file:                    Linters
+      -1.1- .github/workflows/linters.yml
+      -1.2- copy the code in that file
+  - 2. run the 2nd line in jobs.ESLINT.steps.run
+  - 3. run the 2nd line in jobs.STYLELINT.steps.run
+                                                      ______________
+  - 4. npm init -y                                    NPM
+  - 5. run the 1st line in jobs.ESLINT.steps.run
+  - 6. run the 1st line in jobs.STYLELINT.steps.run
+  - 7. create the .gitignore
+      -7.1- add the dir: node_modules
+  ( for sass:   npm install --save-dev sass sass-loader css-loader style-loader file-loader )
+  - 8. npm install --save-dev webpack webpack-cli webpack-dev-server
+  - 9. edit webpack.config script for build & watch
+  - 10. create a webpack.config.js file
+      -10.1- start template: https://webpack.js.org
+  - 11. npm i -D babel-loader @babel/core @babel/preset-env ______________
+  - 12. create the dir & file: src/index.js                 Dirs&Files
+  - 13. create the dir & file: dist/index.html
+      -12.1- add the script to dist/bundle.js in body
+  - 14. push
+
+
+
+
+linter.yml -link
+https://github.com/microverseinc/linters-config/blob/master/javascript/.github/workflows/linters.yml
+Sass module config -link
+https://webpack.js.org/loaders/sass-loader/
+Babel module config -link
+https://webpack.js.org/loaders/babel-loader/
+

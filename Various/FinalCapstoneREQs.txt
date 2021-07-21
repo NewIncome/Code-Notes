@@ -1,0 +1,139 @@
+===========================================================================================
+>>>>>>>>>>>>>>>>>>>> FINAL CAPSTONE | Find your House - Requirements <<<<<<<<<<<<<<<<<<<<<
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1- User Signup (password not required)
+2- Display a list of Items(Houses)
+3- Display detailed info of the Item(House)
+4- Display a list of the favourite Items(Houses)
+
+5- DB with at least 2 tables (Houses & Favourites)
+6- Use Postgres
+7- Use ROR for BackEnd, Create a REST API to manage the DB.
+8- Use React for FrontEnd
+    - Connects to API to send and receive domain data
+    - Have Routes
+    - Use Redux Store, to store info like the username
+9- Project deployed and Accesible online
+
+10- * 1 Additional Feature: - Authentication
+
+
+>>>>>>>>>>>>>>>>>>>>  STEPS  <<<<<<<<<<<<<<<<<<<<<
+0-- Initialize the project
+    - rails new <api-name> --api -T -d=postgresql
+    - setup Linters
+    - add the dependencies (GEMs) needed:
+    - configurations for RSpec TESTs
+      + 
+    - configurations for PostgreSQL
+      + 
+1-- Generate MODELs
+    - rails g model User name favorites_list:references
+    - rails g model FavoritesList user:references items:references
+    - rails g model Item name description
+1a- Fix migrations-&-associations before running db:migrate
+2-- Make -tests- as to what info-&-validations should the models have
+3-- Add MODEL -associations- and -validations-
+2b- Pass tests
+4-- Generate the CONTROLLERs
+5a- Make some -request specs- tests, for the controllers requests possible
+        i.e.: ---Todos---
+            + Test suite for GET /todos
+              - it 'returns todos'
+              - it 'returns status code 200'
+            + Test suite for GET /todos/:id
+              - 'when the record exists' it 'returns the todo'
+              - 'when the record exists' it 'returns status code 200'
+              - 'when the record does not exist' it 'returns status code 404'
+              - 'when the record does not exist' it 'returns a not found message'
+            + Test suite for POST /todos
+              - 'when the request is valid' it 'creates a todo'
+              - 'when the request is valid' it 'returns status code 201'
+              - 'when the request is invalid' it 'returns status code 422'
+              - 'when the request is invalid' it 'returns a validation failure message'
+            + Test suite for PUT /todos/:id
+              - 'when the record exists' it 'updates the record'
+              - 'when the record exists' it 'returns status code 204'
+            + Test suite for DELETE /todos/:id
+              - it 'returns status code 204'
+6-- Add ROUTES
+    - namespace it (subdomain)  &&  Version it
+7-- Add CONTROLLER Methods
+
+=========================================================
+>>>>>>>>>>>>>>>>>>>>  RAILS ROUTES  <<<<<<<<<<<<<<<<<<<<
+With:
+Rails.application.routes.draw do
+  resources :todos do
+    resources :items
+  end
+end
+
+Prefix Verb   URI Pattern                               Controller#Action
+todo_items GET    /todos/:todo_id/items(.:format)           items#index
+           POST   /todos/:todo_id/items(.:format)           items#create
+ todo_item GET    /todos/:todo_id/items/:id(.:format)       items#show
+           PATCH  /todos/:todo_id/items/:id(.:format)       items#update
+           PUT    /todos/:todo_id/items/:id(.:format)       items#update
+           DELETE /todos/:todo_id/items/:id(.:format)       items#destroy
+     todos GET    /todos(.:format)                          todos#index
+           POST   /todos(.:format)                          todos#create
+      todo GET    /todos/:id(.:format)                      todos#show
+           PATCH  /todos/:id(.:format)                      todos#update
+           PUT    /todos/:id(.:format)                      todos#update
+           DELETE /todos/:id(.:format)                      todos#destroy
+           
+
+    API sites:
+https://restcountries.eu/
+https://www.phocuswire.com/Free-APIs-that-travel-startups-should-consider-when-building-any-search-product
+https://izi.travel/en/api
+https://apilist.fun/category/directories
+
+
+
+===== NOW ===== *******************************************+++++++++++++++++++++++++++++
+- API
+  - Get Users
+  - Get Items
+  - Get a Users Favorite Items
+  - Post User
+  - Post Item
+  - Post Favorite Item to User's List (no repeated itemsPerUser)
+  - Put an item from a User's list
+  - login with a User's name
+  - TESTS
+  -CONTROLLERS to perform those actions with
+  - TEST
+
+  
+  
+GET    /users/:user_id/favorites_lists(.:format)       favorites_lists#index     user_favorites_lists
+POST   /users/:user_id/favorites_lists(.:format)       favorites_lists#create
+DELETE /users/:user_id/favorites_lists/:id(.:format)   favorites_lists#destroy   user_favorites_list
+POST   /users(.:format)                                users#create              users
+GET    /items(.:format)                                items#index               items
+POST   /items(.:format)                                items#create
+GET    /items/:id(.:format)                            items#show                item
+PATCH  /items/:id(.:format)                            items#update
+PUT    /items/:id(.:format)                            items#update
+DELETE /items/:id(.:format)                            items#destroy
+DELETE /users/:user_id/favorites_lists(.:format)       favorites_lists#destroy
+POST   /login(.:format)                                users#login               login
+POST   /signup(.:format)                               users#signup              signup
+DELETE /logout(.:format)                               users#logout              logout
+
+
+=============================================================================
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  R E A C T  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Main dirs & files
+-
+
+Store Objects:
+- users
+- items
+- favorites_list
+
+
+
+

@@ -1,0 +1,15 @@
+
+- git flow init -d          // -d is to default the questions that follow
+  
+  - git push -u origin develop   // every time a new branch is created
+
+- git flow feature start feature_branch_name   // goes to 'develop' and creates the branch from there
+- git flow feature finish feature_branch_name   // merges the branch to 'develop' and deletes it
+
+- git flow release start 0.1.0   // creates a release branch from 'develop'
+- git flow release finish   // merges the release branch to 'master' and to 'develop' and deletes it
+
+// a 'hotfix' branch works same as 'release', but created from 'master'
+
+// to create a sub-feature branch      path/<parentBranchName>
+git flow feature start <newBranchName> feature/<branch2CreateFrom>

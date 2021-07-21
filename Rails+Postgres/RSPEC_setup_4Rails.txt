@@ -1,0 +1,145 @@
+GEMS config
+1. Add the Gems to the Gemfile, like so:
+      [...]
+      group :development, :test do
+        gem 'rspec-rails', '~> 3.5'
+      end
+      [...]
+      group :test do
+        gem 'factory_bot_rails', '~> 4.0'
+        gem 'shoulda-matchers', '~> 3.1'
+        gem 'faker'
+        gem 'database_cleaner'
+      end
+2. Install the Gems
+      $ bundle install
+3. Initialize the spec directory
+      $ rails generate rspec:install
+4. Create a factories directory for FactoryBot
+      $ mkdir spec/factories
+5. Configure the spec/rails_helper.rb
+      # require database cleaner at the top level
+      require 'database_cleaner'
+
+      # [...]
+      # configure shoulda matchers to use rspec as the test framework and full matcher libraries for rails
+      Shoulda::Matchers.configure do |config|
+        config.integrate do |with|
+          with.test_framework :rspec
+          with.library :rails
+        end
+      end
+
+      # [...]
+      RSpec.configure do |config|
+        # [...]
+        # add `FactoryBot` methods
+        config.include FactoryBot::Syntax::Methods
+
+        # start by truncating all the tables but then use the faster transaction strategy the rest of the time.
+        config.before(:suite) do
+          DatabaseCleaner.clean_with(:truncation)
+          DatabaseCleaner.strategy = :transaction
+        end
+
+        # start the transaction strategy as examples are run
+        config.around(:each) do |example|
+          DatabaseCleaner.cleaning do
+            example.run
+          end
+        end
+        # [...]
+      end
+6.0. Generate your Models && Controllers
+6.0.1 Run migrations
+6. Add Tests (4 Models && Controllers || Requests (if API proj))
+  $ mkdir spec/requests && touch spec/requests/todos_spec.rb,items_spec.rb}
+7. Run Tests with 
+      $ bundle exec rspec
+8. Populate the Models && Controllers after writting the tests for TDD
+9. Generate the model Factories (use instead of Fixtures) for Test DATA
+      $ touch spec/factories/{todos.rb,items.rb}
+10. Add code like:
+      # spec/factories/todos.rb
+      FactoryBot.define do
+        factory :todo do
+          title { Faker::Lorem.word }
+          created_by { Faker::Number.number(10) }
+        end
+      end
+      # spec/factories/items.rb
+      FactoryBot.define do
+        factory :item do
+          name { Faker::StarWars.character }
+          done false
+          todo_id nil
+        end
+      end
+11. Make helpers, i.e.: JSON parse for the response body
+      $ mkdir spec/support && touch spec/support/request_spec_helper.rb
+12. With the code, or similar:
+      # spec/support/request_spec_helper
+      module RequestSpecHelper
+        # Parse JSON response to ruby hash
+        def json
+          JSON.parse(response.body)
+        end
+      end
+13. Auto-load the support directory in the spec/rails_helper.rb
+      # [...]
+      Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+      # [...]
+      RSpec.configuration do |config|
+        # [...]
+        config.include RequestSpecHelper, type: :request
+        # [...]
+      end
+14. Can run request server tests with 'httpie'
+
+          E   X   T   R   A   S :
+A) Examples of tests:
+      i.e.: ---Todos---
+            + Test suite for GET /todos
+              - it 'returns todos'
+              - it 'returns status code 200'
+            + Test suite for GET /todos/:id
+              - 'when the record exists' it 'returns the todo'
+              - 'when the record exists' it 'returns status code 200'
+              - 'when the record does not exist' it 'returns status code 404'
+              - 'when the record does not exist' it 'returns a not found message'
+            + Test suite for POST /todos
+              - 'when the request is valid' it 'creates a todo'
+              - 'when the request is valid' it 'returns status code 201'
+              - 'when the request is invalid' it 'returns status code 422'
+              - 'when the request is invalid' it 'returns a validation failure message'
+            + Test suite for PUT /todos/:id
+              - 'when the record exists' it 'updates the record'
+              - 'when the record exists' it 'returns status code 204'
+            + Test suite for DELETE /todos/:id
+              - it 'returns status code 204'
+
+B) For better View/Display of Errors:   (instead of getting a very big object of error traces, and just get the simple message when (a)Record not Found, and, (b)Record Invalid)
+  1- Add an exception handler in app/controllers/concerns/exception_handler.rb
+  2- With the code:
+      module ExceptionHandler
+        # provides the more graceful `included` method
+        extend ActiveSupport::Concern
+
+        included do
+          rescue_from ActiveRecord::RecordNotFound do |e|
+            json_response({ message: e.message }, :not_found)
+          end
+
+          rescue_from ActiveRecord::RecordInvalid do |e|
+            json_response({ message: e.message }, :unprocessable_entity)
+          end
+        end
+      end
+  3- Include those modules in the app/controllers/application_controller.rb
+      class ApplicationController < ActionController::API
+        include Response
+        include ExceptionHandler
+      end
+
+C) Source link:
+https://www.digitalocean.com/community/tutorials/build-a-restful-json-api-with-rails-5-part-one

@@ -1,0 +1,45 @@
+Basic Setup
+------------
+
+F - I - R - S - T   !!!!!!!!!
+          for RAILS
+  1.- rails new <app-name> -d=postgresql
+---- steps for PostgreSQL only
+  2.- create the DB
+---- cc<
+  #.- rails server
+    * run to check if everything is ok, and run needed steps
+
+
+
+S - E - C - O - N - D   !!!!!!!!!
+          for Linters
+  1.- create .github/workflows/linters.yml
+      * copy the code from the link
+  2.- install the rubocop gem, as mentioned in the linters.yml
+      * and the whole command to make the .rubocop.yml
+  3.- install stylelint, ..same..
+      * and the whole command to make the .stylelintrc.json
+
+
+T - H - I - R - D   !!!!!!!!!
+          for GitHub
+1. Create Github repo
+2. git add .
+  * before the commit, also modify the README.md file
+  * ..., and add the LICENSE file
+3. git commit -m "Initial commit..."
+4. git remote add origin <link.git to repo>
+5. git push -u origin main
+
+        for Git Flow
+6. git flow init -d
+7. git push -u origin develop
+8. change the default branch to 'develop'
+9. git flow feature start <new-branch-name>
+10. git push -u origin <feature/new-branch-name>
+
+
+
+WorkFlows Linter.yml -Link
+https://github.com/microverseinc/linters-config/blob/master/ror/.github/workflows/linters.yml
