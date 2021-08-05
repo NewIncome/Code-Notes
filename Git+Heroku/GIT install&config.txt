@@ -48,7 +48,7 @@ Installing and Setting Up
      then type "yes"
 4.4 - Verify that the resulting message contains your username     	     	
 
-* After the first try of SSH clone, you'r computer will warn you an app is trying to connect to your ssh key and will promp to for your password=>passprhase. Type it or save it before hand in your key-manager.
+** After the FIRST TRY of SSH clone, you'r computer will warn you an app is trying to connect to your ssh key and will promp to for your password=>passprhase. Type it or save it before hand in your KEYCHAIN.
 
 
 
@@ -60,5 +60,5 @@ Installing and Setting Up
 	$ git config credential.helper store   // for permanent storing without security
 	$ git config --global credential.helper cache   // for permanent storing without security
 	$ git config --global credential.helper 'cache --timeout=3600'   // with set time in seconds. For both caching and stored.
-
+	- then add your github username and token and they will be saved for the defined period of time.
 
