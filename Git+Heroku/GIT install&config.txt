@@ -61,4 +61,6 @@ Installing and Setting Up
 	$ git config --global credential.helper cache   // for permanent storing without security
 	$ git config --global credential.helper 'cache --timeout=3600'   // with set time in seconds. For both caching and stored.
 	- then add your github username and token and they will be saved for the defined period of time.
+	  working ok.
+
 
