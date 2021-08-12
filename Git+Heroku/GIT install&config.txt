@@ -24,7 +24,7 @@ Installing and Setting Up
      $ ssh-keygen -t ed25519 -C "your_github_email@example.com"
     3) When prompted 4 a file press Enter to accept the default file location  // (/home/you/.ssh/id_ed25519)
     4) At the prompt, type a secure passphrase
-4.1 - Adding your SSH key to the ssh-agent
+4.1 - Adding your SSH key to the ssh-agent (so the agent remembers your passphrase a& doesn't ask everytime)
     1) Start the ssh-agent in the background
      $ eval "$(ssh-agent -s)"   // > Agent pid 59566
     2) Add your SSH private key to the ssh-agent   // if you changed the custom name replace the id_ed25519
@@ -48,7 +48,7 @@ Installing and Setting Up
      then type "yes"
 4.4 - Verify that the resulting message contains your username     	     	
 
-** After the FIRST TRY of SSH clone, you'r computer will warn you an app is trying to connect to your ssh key and will promp to for your password=>passprhase. Type it or save it before hand in your KEYCHAIN.
+** After the FIRST TRY of SSH clone, you'r computer will warn you an app is trying to connect to your ssh key and will promp you for your password=>passprhase. Type it or save it before hand in your KEYCHAIN.
 
 
 
