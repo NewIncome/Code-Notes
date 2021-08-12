@@ -64,4 +64,12 @@ Installing and Setting Up
 	- then add your github username and token and they will be saved for the defined period of time.
 	  working ok.
 
+CHANGE/SWITCH, remote URL's from HTTP to SSH
+  In the current git working directory
+1. List existing remotes
+  $ git remote -v
+  > origin  https://github.com/USERNAME/REPOSITORY.git (fetch)
+  > origin  https://github.com/USERNAME/REPOSITORY.git (push)
+2. Change your remote's URL from http to ssh
+  $ git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 
