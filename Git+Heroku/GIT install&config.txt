@@ -33,6 +33,7 @@ Installing and Setting Up
 4.2 - Add the SSH key to your account on GitHub
     1) Copy the SSH public key to your clipboard. Install "xclip" or open (.ssh/id_ed25519.pub) file and copy content.
      $ xclip -selection clipboard < ~/.ssh/id_ed25519.pub
+// the chmod permissions of both 'id_ed25519' files should be '600'. Do not change!!!
     2) In Github > Settings > SSH and GPC keys > New/Add SSH key
       2.1 - In the "Title" field, add a descriptive label for the new key
       2.2 - In the "Key" field, paste your key
