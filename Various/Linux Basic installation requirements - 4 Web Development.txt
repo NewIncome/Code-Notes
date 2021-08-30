@@ -16,14 +16,19 @@ List of CLI's
 1.- zsh + OhMyZsh
 2.- nvm + node (12&+)
 3.- rbenv + ruby ()
-4.- vim's custom config
-   > .1. fix LineComment shortcut (File > Preferences > KeyboardShortcuts > ToggleLineComment)
-   > .2. Live Server
-   > .3. Material Icon
-   > .4. Ruby Solargraph
-   > .5. Bracket Pair Colorizer
-   > .6. Path Intellisense
-   > .7. Quokka
-   > .8. ... ROR <% > quick put
-   > CTRL + shift + v (preview MD files)
+4.- vi/vim's custom config
+	> 
+
+
+VSCODE Extensions + feat's
+---------------------------
+1. fix LineComment shortcut (File > Preferences > KeyboardShortcuts > ToggleLineComment)
+2. Live Server
+3. Material Icon
+4. Ruby Solargraph
+5. Bracket Pair Colorizer
+6. Path Intellisense
+7. Quokka
+8. ... ROR <% > quick put
+CTRL + shift + v (preview MD files)
 
