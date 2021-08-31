@@ -26,6 +26,8 @@ VSCODE Extensions + feat's
 2. Live Server
 3. Material Icon
 4. Ruby Solargraph
+	4.1 Install solargraph Gem
+		$ gem install solargraph
 5. Bracket Pair Colorizer
 6. Path Intellisense
 7. Quokka
