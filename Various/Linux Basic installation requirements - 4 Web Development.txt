@@ -11,13 +11,24 @@ List of Apps
 5.- VSCODE
 
 
+
 List of CLI's
 --------------
 1.- zsh + OhMyZsh
 2.- nvm + node (12&+)
 3.- rbenv + ruby ()
-4.- vi/vim's custom config
-	> 
+4.- vi/vim's custom config   //***INSTALL VIM if not already installed
+	(https://www.linode.com/docs/guides/introduction-to-vim-customization/)
+	4.1 Create the vimrc file and copy the code
+	4.2 Install Vim plug-in manager
+		* - change the dir inside .vimrc.plug, from ~/vim/plugged to ~/vimplug-plugins.
+		Or the one to be used.
+	4.3 Install color scheme/theme 'gruvbox'
+		4.3.1 To your .vimrc add: Plug 'morhetz/gruvbox' . And then run :PlugInstall
+		* - add the 'set background=dark' code line in the .vimrc, to always initiate vim
+		with background in dark-mode. Can change it inside vim with same command.
+		* - and for a better contrast add also: let g:gruvbox_contrast_dark = 'medium'
+
 
 
 VSCODE Extensions + feat's
