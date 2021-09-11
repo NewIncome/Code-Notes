@@ -1,0 +1,4 @@
+git revert HEAD~3			
+git reset --hard HEAD~1		same as above
+~1 == just ^  : HEAD~1 == HEAD^
+
