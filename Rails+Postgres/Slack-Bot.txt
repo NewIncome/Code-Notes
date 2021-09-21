@@ -1,0 +1,21 @@
+	>>>>	SLACK BOT	<<<<
+
+Slack-ruby-client (= node-slack-client)
+------------------
+ [https://github.com/slackhq/node-slack-client]
+ [https://github.com/dblock/slack-ruby-client]
+It's a helper as/for-a websocket connection
+
+- has Slack::RealTIme::Client
+- has many events
+
+
+
+Botkit
+-------
+ [https://github.com/howdyai/botkit]
+It's a higher-level built bot-interface
+
+
+[Excellent explanation here](https://code.dblock.org/2016/03/11/your-first-slack-bot-service-video.html)
+
