@@ -28,6 +28,7 @@ List of CLI's
 		* - add the 'set background=dark' code line in the .vimrc, to always initiate vim
 		with background in dark-mode. Can change it inside vim with same command.
 		* - and for a better contrast add also: let g:gruvbox_contrast_dark = 'medium'
+5.- git + git-flow
 
 
 

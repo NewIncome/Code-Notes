@@ -1,3 +1,13 @@
+INSTALL GIT-FLOW
+-----------------
+- $ apt-get install git-flow
+	or
+- $ curl -OL https://raw.github.com/nvie/gitflow/develop/contrib/gitflow-installer.sh
+  $ chmod +x gitflow-installer.sh
+  $ sudo ./gitflow-installer.sh
+
+
+--------------------------------------------------------------------------
 
 - git flow init -d          // -d is to default the questions that follow
   
