@@ -17,5 +17,53 @@ Botkit
 It's a higher-level built bot-interface
 
 
-[Excellent explanation here](https://code.dblock.org/2016/03/11/your-first-slack-bot-service-video.html)
+
+
+	>>>>>	Steps to BOT creation	<<<<<
+pre-work-onSlack
+- create a new Workspace
+- YourApps > CreateNewApp [api.slack.com]
+	* give it a name & workspace
+- Bots > Review Scopes to Add
+	* add some actions, at least 'chat:write'
+- Generate Token. Install App to Workspace >
+	* in OAuth Tokens for Your Workspace, copy 'Bot User Oauth Token'
+
+Code
+( --- to have a separate ENV file ---
+- make .env.rb file
+	* ENV['TOKEN_NAME'] = '...token...'
+- call it inside code with
+	* require './.env'; puts ENV['TOKEN_NAME']
+- add it to .git_ignore
+OR )
+- add the ENV variables to the .profile current linux user file with
+	* export ENV_KEY_NAME=...key...
+(Ruby has direct access to that file and can use commands like ENV.size, .keys, etc)
+- make .rb file
+	* add code, ie:
+		require 'slack-ruby-client'
+		require 'oauth2'
+
+		Slack.configure do |config|
+		  config.token = ENV['SLACK_BOT_USER_OAUTH_TOKEN_01']
+		  raise 'Missing ENV[SLACK_BOT_USER_OAUTH_TOKEN_01]!' unless config.token
+		end
+		client = Slack::Web::Client.new
+		resp = client.auth_test
+- make Gemfile
+	* add code for slack gem:
+		source 'https://rubygems.org'
+		gem 'slack-ruby-client'
+
+Afterwards
+- to send a message to a channel, add bot to channel:
+	* right-click channel > channel details > Integrations > Add-an-app > the name-of-your-bot
+- now you can add code to <code>.rb file for the message:
+	* client.chat_postMessage(channel: '#general', text: 'Hello World', as_user: true)
+
+
+[Excellent explanation](https://www.youtube.com/watch?v=KJ5bFv-IRFM)
+
+
 
