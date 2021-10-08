@@ -31,6 +31,18 @@ List of CLI's
 5.- git + git-flow
 
 
+//==---  LIGATURES, to join characters: ==, ===, -> etc,.  ---==
+https://github.com/tonsky/FiraCode
+- Install on system
+	$ dnf install fira-code-fonts
+- 4 VScode
+	* in settings.json add:
+		"editor.fontSize": 15,
+		"editor.fontFamily": "Fira Code",
+		"editor.fontLigatures": true
+	* restart
+
+
 
 VSCODE Extensions + feat's
 ---------------------------
