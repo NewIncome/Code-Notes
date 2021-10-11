@@ -62,8 +62,20 @@ Afterwards
 - now you can add code to <code>.rb file for the message:
 	* client.chat_postMessage(channel: '#general', text: 'Hello World', as_user: true)
 
-
 [Excellent explanation](https://www.youtube.com/watch?v=KJ5bFv-IRFM)
 
+Install SINATRA live localhost
+	- $ gem install sinatra
+	- run minimum code in same file:
+		# myapp.rb
+		require 'sinatra'
 
+		get '/' do
+		  'Hello world!'
+		end
+	- view at http://localhost:4567 (initially)
+
+Run Ngrok tunnel = Public URL for testing local-web-servers
+	- installation instructions on page, unzip, auth and run
+	 $ ./ngrok http 4567
 
