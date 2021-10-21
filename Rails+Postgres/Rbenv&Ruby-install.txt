@@ -39,5 +39,23 @@ exec $SHELL
    $ gem install rspec
 
 
+To Install RubyOnRAILS
+  - General install
+   $ gem install rails
+  - or if you want a specific version
+   $ gem install rails -v 5.2.0
+  - to Create a new Project:
+   $ rails new myapp
+  - to create new project with specific Rails version
+   $ rails _2.1.0_ new myapp 
+//* Default RAILS version is always the -latest- installed
+//* good versions: 5.2.0 & 6.0.2
+  - to check installed rails versions
+   $ gem list | grep rails
+
+
+
 from Fedora site:
 https://developer.fedoraproject.org/tech/languages/ruby/ruby-installation.html
+for Rails
+https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-18-04
