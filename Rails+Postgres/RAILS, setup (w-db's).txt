@@ -3,6 +3,7 @@ RAILS Proj setup
             >>>>>>>>>>>>>>> PostgreSQL config <<<<<<<<<<<<<<<
 1. Install PostgreSQL and it's dependencies
     $ sudo apt install postgresql postgresql-contrib libpq-dev
+*****
 2. Create a new Role (-s 4superUserPrivileges) and set it's Password (-P)
     $ sudo -u postgres createuser -s <roleoruserame>
 3. Enter PostgreSQL
@@ -73,7 +74,26 @@ Notes
 + 
 
 
-
+***** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+		Install PostgreSQL on Fedora32
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  - Install and it's dependencies
+   $ sudo dnf install postgresql-server postgresql-contrib
+   // it installs: postgresql-contrib, postgresql-server, libpq, postgresql, uuid
+  - database initialization
+   $ sudo postgresql-setup --initdb --unit postgresql
+UserCreation
+  - Run postgre's Interactive Shell
+   $ sudo -u postgres psql
+  - Run user creation commands
+   $ postgres=# CREATE USER lenny WITH PASSWORD 'leonard';
+   $ postgres=# CREATE DATABASE carl OWNER lenny;
+  - 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>---<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+user: postgres
+pssw: dev4ever
+user: cloud01 
+pssw: ffvii4ever
 
 
 (---------- + Devise ----------)
