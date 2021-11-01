@@ -52,7 +52,7 @@ RAILS Proj setup
 
 
 
-===----- PostgreSQL commands -----===
+====================== ===----- PostgreSQL commands -----=========================
 $ \q    <-- quit/exit
 $ \du   <-- get a list of all the roles
 $ \dt   <-- see all tables
@@ -61,6 +61,7 @@ ALTER ROLE username WITH PASSWORD 'password';     <-- to change a user/role's pa
 
 pg_config --version     <-- to check your PostgreSQL version
 CTRL+D          <-- to exit postgres
+============================--------------------------============================
 >>>>>>>>>> with MySQL <<<<<<<<<<
 
 
@@ -82,17 +83,28 @@ Notes
    // it installs: postgresql-contrib, postgresql-server, libpq, postgresql, uuid
   - database initialization
    $ sudo postgresql-setup --initdb --unit postgresql
-UserCreation
+  SERVER
+  - to enable it's start during the boot:
+   $ sudo systemctl enable postgresql
+  - start the postgresql server only when necessary:
+   $ sudo systemctl start postgresql
+UserCreation (not needed straight at the beginning)
   - Run postgre's Interactive Shell
    $ sudo -u postgres psql
   - Run user creation commands
    $ postgres=# CREATE USER lenny WITH PASSWORD 'leonard';
    $ postgres=# CREATE DATABASE carl OWNER lenny;
-  - 
+  Missing gem 'pg' on Fedora
+  - to install it, it installs "libpq-devel":
+   $ yum install /usr/include/libpq-fe.h
+  - Install Yarn, to be able to install webpacker:install
+   $ npm install --global yarn
+  - Install webpacker
+   $ rails webpacker:install
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>---<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 user: postgres
 pssw: dev4ever
-user: cloud01 
+user: cloud01
 pssw: ffvii4ever
 
 
