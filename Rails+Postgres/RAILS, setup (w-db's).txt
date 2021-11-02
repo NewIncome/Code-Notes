@@ -21,6 +21,7 @@ RAILS Proj setup
 
     # "local" is for Unix domain socket connections only
     local   all             all                                     peer   <-- 'peer' to md5
+6a. in FEDORA the file is in: /var/lib/pgsql/data/pg_hba.conf
 7. RESTART!!!!! YOUR MACHINE/COUMPUTER
 8. store your postgres-role password in an environment variable
     $ echo 'export APPNAME_DATABASE_PASSWORD="PostgreSQL_Role_Password"' >> ~/.zshrc
@@ -95,7 +96,7 @@ UserCreation (not needed straight at the beginning)
    $ postgres=# CREATE USER lenny WITH PASSWORD 'leonard';
    $ postgres=# CREATE DATABASE carl OWNER lenny;
   Missing gem 'pg' on Fedora
-  - to install it, it installs "libpq-devel":
+  - to install it (it installs "libpq-devel"):
    $ yum install /usr/include/libpq-fe.h
   - Install Yarn, to be able to install webpacker:install
    $ npm install --global yarn
@@ -106,6 +107,10 @@ user: postgres
 pssw: dev4ever
 user: cloud01
 pssw: ffvii4ever
+
+
+Useful Links:
+https://docs.fedoraproject.org/en-US/quick-docs/postgresql/
 
 
 (---------- + Devise ----------)
