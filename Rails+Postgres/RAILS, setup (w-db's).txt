@@ -21,7 +21,8 @@ RAILS Proj setup
 
     # "local" is for Unix domain socket connections only
     local   all             all                                     peer   <-- 'peer' to md5
-6a. in FEDORA the file is in: /var/lib/pgsql/data/pg_hba.conf
+6a. in FEDORA the file path changes:
+	$ sudo vi ~/../../var/lib/pgsql/data/pg_hba.conf
 7. RESTART!!!!! YOUR MACHINE/COUMPUTER
 8. store your postgres-role password in an environment variable
     $ echo 'export APPNAME_DATABASE_PASSWORD="PostgreSQL_Role_Password"' >> ~/.zshrc
@@ -54,11 +55,20 @@ RAILS Proj setup
 
 
 ====================== ===----- PostgreSQL commands -----=========================
+$ \?    <-- list of all commands available, or with  $ \h
 $ \q    <-- quit/exit
-$ \du   <-- get a list of all the roles
-$ \dt   <-- see all tables
+$ \du   <-- list all the roles
+$ \dt   <-- list all tables
+$ \dn   <-- list available schema
+$ \df   <-- list available functions
+$ \l    <-- list all available databases
+$ \s    <-- view complete history
+$ \s fileName <-- to save history to file
+$ \c DBname   <-- command to switch DB connection to new DB
+$ -d DBname -U postgres -W    <-- to connect to a DB
 
-ALTER ROLE username WITH PASSWORD 'password';     <-- to change a user/role's password
+$ CREATE USER lenny WITH PASSWORD 'leonard';    <-- create a user with pswd
+$ ALTER ROLE username WITH PASSWORD 'password';   <-- to change a user/role's password
 
 pg_config --version     <-- to check your PostgreSQL version
 CTRL+D          <-- to exit postgres
@@ -102,6 +112,8 @@ UserCreation (not needed straight at the beginning)
    $ npm install --global yarn
   - Install webpacker
    $ rails webpacker:install
+// if needed, to change a password for a User or a Role:
+// $ ALTER USER postgres WITH PASSWORD 'new_password';
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>---<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 user: postgres
 pssw: dev4ever
