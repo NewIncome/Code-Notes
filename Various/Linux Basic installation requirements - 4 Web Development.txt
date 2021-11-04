@@ -19,15 +19,31 @@ List of CLI's
 3.- rbenv + ruby ()
 4.- vi/vim's custom config   //***INSTALL VIM if not already installed
 	(https://www.linode.com/docs/guides/introduction-to-vim-customization/)
-	4.1 Create the vimrc file and copy the code
+	4.1 Create the ~/.vimrc file and add the code:
+      " Call the .vimrc.plug file
+      if filereadable(expand("~/.vimrc.plug"))
+        source ~/.vimrc.plug
+      endif
 	4.2 Install Vim plug-in manager
 		* - change the dir inside .vimrc.plug, from ~/vim/plugged to ~/vimplug-plugins.
 		Or the one to be used.
+    4.2.1 Create the following dir and file:
+      $ touch ~/.vimrc.plug && mkdir ~/vimplug-plugins
 	4.3 Install color scheme/theme 'gruvbox'
-		4.3.1 To your .vimrc add: Plug 'morhetz/gruvbox' . And then run :PlugInstall
-		* - add the 'set background=dark' code line in the .vimrc, to always initiate vim
-		with background in dark-mode. Can change it inside vim with same command.
-		* - and for a better contrast add also: let g:gruvbox_contrast_dark = 'medium'
+		4.3.1 To your .vimrc add:
+      call plug#begin('~/.vim/plugged')
+
+      "Fugitive Vim Github Wrapper
+      Plug 'tpope/vim-fugitive'
+      "Gruvbox VIM Theme
+      Plug 'morhetz/gruvbox'
+
+      call plug#end()
+    4.3.2 Run Install
+      Inside VIM run :PlugInstall
+      * - add the 'set background=dark' code line in the .vimrc, to always initiate vim
+      with background in dark-mode. Can change it inside vim with same command.
+      * - and for a better contrast add also: let g:gruvbox_contrast_dark = 'medium'
 5.- git + git-flow
 
 
