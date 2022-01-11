@@ -25,6 +25,7 @@ List of CLI's
         source ~/.vimrc.plug
       endif
 	4.2 Install Vim plug-in manager
+sudo curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 		* - change the dir inside .vimrc.plug, from ~/vim/plugged to ~/vimplug-plugins.
 		Or the one to be used.
     4.2.1 Create the following dir and file:
