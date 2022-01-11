@@ -32,7 +32,7 @@ sudo curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercont
       $ touch ~/.vimrc.plug && mkdir ~/vimplug-plugins
 	4.3 Install color scheme/theme 'gruvbox'
 		4.3.1 To your .vimrc add:
-      call plug#begin('~/.vim/plugged')
+      call plug#begin('~/.vimplug-plugins')
 
       "Fugitive Vim Github Wrapper
       Plug 'tpope/vim-fugitive'
@@ -42,6 +42,8 @@ sudo curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercont
       call plug#end()
     4.3.2 Run Install
       Inside VIM run :PlugInstall
+      -If error saying 'unknown function plug#end' run:
+      $ chmod -R 0755 ~/.vim/
       * - add the 'set background=dark' code line in the .vimrc, to always initiate vim
       with background in dark-mode. Can change it inside vim with same command.
       * - and for a better contrast add also: let g:gruvbox_contrast_dark = 'medium'
