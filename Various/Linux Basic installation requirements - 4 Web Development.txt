@@ -54,6 +54,7 @@ sudo curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercont
 https://github.com/tonsky/FiraCode
 - Install on system
 	$ dnf install fira-code-fonts
+  || $ sudo apt install fonts-firacode
 - 4 VScode
 	* in settings.json add:
 		"editor.fontSize": 15,
