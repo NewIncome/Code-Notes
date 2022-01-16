@@ -69,6 +69,7 @@ $ -d DBname -U postgres -W    <-- to connect to a DB
 
 $ CREATE USER lenny WITH PASSWORD 'leonard';    <-- create a user with pswd
 $ ALTER ROLE username WITH PASSWORD 'password';   <-- to change a user/role's password
+$ DROP DATABASE [IF EXISTS] database_name;
 
 pg_config --version     <-- to check your PostgreSQL version
 CTRL+D          <-- to exit postgres
