@@ -20,6 +20,12 @@ $ git push heroku testbranch:master   ---(to push a different branch)
 
 $ git config --list | grep heroku   ---(to know which remote url has been set, if any)
 
+// ****************************************************
+// **************** IF Heroku FAILS DEPLOY, try:
+$ heroku buildpacks:set heroku/ruby
+$ heroku buildpacks:add --index 1 heroku/nodejs
+$ git push heroku master
+
 
 
 1- Description of the project
