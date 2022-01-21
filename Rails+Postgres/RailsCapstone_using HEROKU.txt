@@ -25,7 +25,8 @@ $ git config --list | grep heroku   ---(to know which remote url has been set, i
 $ heroku buildpacks:set heroku/ruby
 $ heroku buildpacks:add --index 1 heroku/nodejs
 $ git push heroku master
-
+Link to post with answer:
+https://stackoverflow.com/questions/60628934/deploying-rails-app-via-heroku-uses-an-old-version-of-node
 
 
 1- Description of the project
