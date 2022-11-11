@@ -18,6 +18,7 @@ List of CLI's
 2.- nvm + node (12&+)
 3.- rbenv + ruby ()
 4.- vi/vim's custom config   //***INSTALL VIM if not already installed
+  $ sudo apt install vim
 	(https://www.linode.com/docs/guides/introduction-to-vim-customization/)
 	4.1 Create the ~/.vimrc file and add the code:
       " Call the .vimrc.plug file
