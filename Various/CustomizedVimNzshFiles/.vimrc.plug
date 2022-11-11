@@ -1,0 +1,8 @@
+call plug#begin('~/.vimplug-plugins')
+
+  "Fugitive Vim Github Wrapper
+  Plug 'tpope/vim-fugitive'
+  "Gruvbox VIM Theme
+  Plug 'morhetz/gruvbox'
+
+call plug#end()
