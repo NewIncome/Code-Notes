@@ -3,6 +3,8 @@ RAILS Proj setup
             >>>>>>>>>>>>>>> PostgreSQL config <<<<<<<<<<<<<<<
 1. Install PostgreSQL and it's dependencies
     $ sudo apt install postgresql postgresql-contrib libpq-dev
+1a.Check postgres version
+    $ psql --version
 *****
 2. Create a new Role (-s 4superUserPrivileges) and set it's Password (-P)
     $ sudo -u postgres createuser -s <roleoruserame>
@@ -36,6 +38,14 @@ RAILS Proj setup
     username: sammy
     password: <%= ENV['APPNAME_DATABASE_PASSWORD'] %>
     ======= =====----- =========================== -----===== =======
+
+Errors:
+* When trying to open psql and you get an error saying: psql: error: could not connect to server
+  + to check the status of the server/service
+    $ sudo service postgresql status
+  + to start the server/service
+    $ sudo service postgresql start
+
 
 ---------------------------- Rails Basic Config, Set ----------------------------
 ---------------------------------------------------------------------------------
