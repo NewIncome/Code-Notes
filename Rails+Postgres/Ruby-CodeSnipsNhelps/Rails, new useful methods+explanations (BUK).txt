@@ -1,0 +1,54 @@
+==============================================
+			New Methods, theory
+ --------------------------------------------
+-----DB:
+	$ rails db:migrate		# Creates the DB
+	$ rails db:rollback		# Creates the DB
+	$ rails db:migrate:redo	# is the same as rolling-back then migrating
+
+-----rails commands, when there's warnings from previous versions
+  	$ RUBYOPT='-W:no-deprecated -W:no-experimental' rails ...
+For backward compatibility with earlier versions of ruby prefix
+  	$ RUBYOPT='-W0' rails ...
+
+
+-----Console
+  • Get all the tables in the DataBAse
+	$ ActiveRecord::Base.connection.tables
+
+
+-----Routes:
+---on Resources:
+＊ Member routing
+  can be defined for actions that are performed on a member of the resource
+	resource :posts do
+	  post :archive, on: :member
+	end
+	# archive_post POST       /posts/:id/archive(.:format)
+
+＊ Collection routing
+  can be defined for actions that are performed on collection of the resource
+	resource :posts do
+	  get :search, on: :collection
+	end
+	# search_posts GET       /posts/search(.:format)
+
+· We can also define multiple member / collection routes together
+resource :posts do
+  member do
+    post :archive
+    get :inactivate
+  end
+
+  collection do
+    get :search
+    post :upload
+  end
+end
+
+
+
+
+
+
+

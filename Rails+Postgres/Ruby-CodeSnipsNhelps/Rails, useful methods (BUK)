@@ -1,0 +1,137 @@
+******************
+Useful methods!
+·················
+-----de RAILS:
+->	get the current Variable
+	$ Variable::Current.call	# del scope de abiertas
+-> borrar el current_id de la variable, para que el call seleccione el abiertas.first
+	$ Variable::Current.clear_cache
+->	ver las variables abiertas
+	$ Variable.abiertas
+->	ver la variable anterior a la seleccionada
+	$ variable.variable_anterior
+->	abrir una variable
+	$ Variable.last.abrir
+->	cerrar una variable por consola (para no generar archivos)
+	$ Variable.abiertas.first.update(estado: 'cerrado')
+->	Abrir un nuevo mes
+	$ variable.abrir_siguiente_mes
+En un class Cell
+-> para poder usar un metodo con otro nombre o un delegate. Osea accesar a variable(que es buk_subprocess.variable) desde el cell.erb que tiene de el "alias buk_subprocess model"
+	# asi seria el delegate # delegate :variable, to: :buk_subprocess
+	property :variable
+	# la funcion larga seria definir:
+	def variable
+	  buksubprocess.variable
+	end
+-> en Tests, agregar al rededor de varios asserts
+	$ aggregating_errors do
+	$ ...
+	$ end
+-> encontrar el indice de un elemento dentro de un array
+	$ Array.find_index('Rut') || block
+-> 
+
+
+---En serverside
+->	...
+	bin/spring stop
+
+---DataBase:
+-> Revisar estado de migracion
+	$ rails db:migrate:status
+-> Error al hacer migraciones
+	$ rails db:rollback STEP=1
+
+rails db:reset	
+rails db:setup
+
+Qué hace el bin/setup ???
+
+-> #Con el siguiente comando restauramos un dump
+	$ bin/restore-dump <ruta de nuestro dump>.dump buk_apartment
+-> #Con el siguiente comando restauramos un dump con la tabla de versiones
+	$ bin/restore-dump <path de nuestro dump>.dump --full buk_apartment
+
+
+
+En CONSOLE
+->	cargar consola con el tenant "demo2" seleccionado
+		# por defecto entra con el tenant "public"
+	$ TENANT=demo2 bin/rails c
+->	get current tenant in console
+	$ Apartment::Tenant.current
+->	set tenant in console
+	$ Apartment::Tenant.switch! :axis
+
+-----de GIT:
+->	para borrar un commit inicial de una rama
+	$ git reset --hard HEAD~1	# <- '1' significa ir a 1 commit antes de Head
+
+-----de Ruby:
+---binding.pry :: Byebug
+		# Pry is another Ruby REPL (Read, Evaluate, Print, Loop)
+->	shows you where you are at in the code
+	$ whereami
+->	leaves the console && || (soft exit)moves to next element in loop (next pry)
+	$ exit
+->	hard exit
+	$ !!!
+->	continue through stack
+	$ c
+->	execute next line
+	$ n
+->	step into next function call
+	$ s
+->	finish: execute until current stack frame returns
+	$ f
+->	Execute the line in the current debugging context
+	$ play -l
+->	Show the backtrace of the most recent exception.
+	$ wtf?
+
+
+SCRIPTS:
+--------
+-> Abrir todos los Meses(Variables) de un cierto año:
+	$ Variable.all.filter{|v| v.start_date.year == 2020}.each{|v| v.update(estado: 'abierto')}
+-> Encontrar una Variable_Anual y abrirla
+	$ VariableAnual.find_by(ano: 2020).update(cerrado: false)
+-> Abrir una Liquidacion
+	$ Variable.abiertas.first.liquidacions.find(2963).update!(cerrada: false)
+-> Abrir SubProcesos de Liquidacion
+	$ Variable.abiertas.first.liquidacions.find(2963).buk_subprocesses.each{|s| s.update(status: 'abierto')}
+	$ Liquidacion.find(8575).buk_subprocess.update(status: 'abierto')
+
+-> Crear un TENANT de "STARTER"
+  1. Crear el Tenant
+	bin/rails 'tenant:create[test-starter, starter]' S3_ACCESS_KEY=access_key S3_SECRET_KEY=secret_key S3_DEFAULT_BUCKET=buk-app-test-starter
+  2.  Crear los Usuarios base
+	TENANT=test-starter bin/rails users:create_all
+  3. En Consola (crear tu usuario personal con la Empresa-Inicial):
+	Tenant::Starter::Setup.call(user_params: { name: "Alfred", email: "acardenas@buk.mx"}, company_params: {nombre: "Alfred Enterprise" , fantasy_name: "Alfred Enterprise", rut: "266620462-2"}, host: "test")
+	# El correo del Usuario debe ser real porque debes ingresar al correo.
+	# Y con ése correo vas a Loggearte en la App
+
+
+Slack
+------
+	$ @Mr. Bot help
+-> To assign/pick someone as a reviewer
+	$ @Mr. Bot team rmcl-t --assign 34928 — ignore Edgar #34928 #_de_MR
+	$ @Mr. Bot team rmcl-t --assign 34901 — ignore mantequera
+-> Ver lista de objetos y agregados en rmcl-t
+	$ @Mr. Bot team rmcl-t --status
+// Puedes ir a la "App" de Mr.Bot para hacer pruebas con los comandos, dando click en algún texto @Mr.Bot ya_usado / en_conversaciones_pasadas
+	$ @Mr. Bot team rmcl-t --user-rm JP
+	$ @Mr. Bot team rmcl-t --hero-add dquiroz
+	$ @Mr. Bot team rmcl-t --user-u jsantiago4 --email jsantiago@buk.cl --gitlab-id 7486472
+	$ @Mr. Bot team rmcl-t --user-add jsantiago --email jsantiago@buk.cl --gitlab-id 7486472 --github-username JSantiago88
+
+-> Get info from Team(rmcl-t):
+	$ @Mr. Bot team rmcl-t --info
+
+
+
+
+

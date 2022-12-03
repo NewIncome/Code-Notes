@@ -1,0 +1,53 @@
+==============================================
+				Useful Methods
+ --------------------------------------------
+
+binding.pry
+· wai 20 : muestra 20 lines antes, o las que se deseen
+
+
+-----general 4 Rails:
+· Convert number-string to boolean
+	$ ActiveModel::Type::Boolean.new.cast("1") => true
+	$ ActiveModel::Type::Boolean.new.cast("0") => false
+	$ ActiveModel::Type::Boolean.new.cast(false) => false
+
+
+-----for SQL searches -in Rails-
+· Get the Books that have a Comment with id:2
+	$ Book.joins(:comments).where("comments.id = 2")
+	$ Book.joins(:comments).where(comments: { id: 2 })
+· To find Books with a PART of a string in their 'Title'
+	$ Book.where("title LIKE ?", "%" + params[:q] + "%")
+		---'%' is a wildcard character---
+
+
+-----for Tests
+Stubs
+· To call-without-calling a method and simulate the response.
+  Returns success, failure or exception (as coded).
+  Checks the beahviour of the code under test in case of these return values.
+	$ Reliquidacion::Update.stub :call, ->(*){ raise Core::Errors::SettlementCalculationError.new(liquidacion, 'Error custom') } do
+          post :create, params: { reliquidacion: @params }
+        end
+
+
+-----Rails extra knowledge
+attributes
+· to auto convert certain attribute types
+ 	class Person
+	  include ActiveModel::Attributes
+  
+	  attribute :date_of_birth, :date	<- converts "1980-12-12" to date format
+	  attribute :employed, :boolean		<- converts "0" to boolean
+	end
+· to create an enum column from a boolean column
+	attribute :some_boolean_attribute, :integer
+	enum some_boolean_attribute: { one: 1, two: 2, three: 3 }
+
+
+
+
+
+
+
