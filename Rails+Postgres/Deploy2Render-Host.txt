@@ -1,0 +1,54 @@
+    === === ==== === === ===>> Render <<=== === === ==== === ===
+Steps to deploy Rails project with Postgres DB to Render-H:
+Modify:
+1• config/database.yml
+  +Create a DATABASE_URL, add to config/database.yml as ENV var
+  +also it needs PostgreSQL as the DB, so needs according changes
+2• config/puma.rb
+  +Activate the workers, by uncommenting lines with: preload_app! && workers ENV.fetch... 4 }
+3• config/environments/production.rb
+  +Edit the line about public_file_server, appending:  || ENV['RENDER'].present?
+4• Add Build-Script
+  +in bin/render-build.sh
+  #!/usr/bin/env bash
+  # exit on error
+  +set -o errexit
+  bundle install
+  bundle exec rake assets:precompile
+  bundle exec rake assets:clean
+  bundle exec rake db:migrate
+
+  +Make sure the script is executable:
+5• Change script file's permissions
+  $ chmod a+x bin/render-build.sh
+6• PUSH TO GIT (before deploy)
+7• Manual Deploy
+https://render.com/docs/deploy-rails#update-your-app-for-render
+
+~~ ~~ ~~ ~~ ~~ MANUAL DEPLOY through Render Dashboard ~~ ~~ ~~ ~~ ~~
+1• Create new PostgreSQL-DB on Render
+2• Create new WebService for the repo
+    2.1• Select Ruby for the environment and set the following properties;
+      2.1a+ Build Command     ./bin/render-build.sh
+      2.1b+ Start Command     bundle exec puma -C config/puma.rb
+    2.2• Add the following environment variables under the Advanced section:
+      + DATABASE_URL        The internal database URL
+      + RAILS_MASTER_KEY    Paste contents of the config/master.key
+That’s it! Finalize deployment. It will be live on your .onrender.com URL as soon as the build finishes.
+
+
+2Make the ---Rails MasterKey---
+• Make RAILS_MASTER_KEY, with the command:  (or atom instead of code)
+  $ EDITOR="code --wait" bin/rails credentials:edit
+or $ rails credentials:edit
+#the prefix command is to open the editor and be able to edit the file before it creates both* files (*if the credentials are deleted, this, to restore both with the command)
+
+
+
++++ Test: Try to modify the DB service via the rails/application generator:
+	$ rails new blog --database=postgresql
+  It should prompt you about modifying the db.yml
+
+
+Steps from:
+https://render.com/docs/deploy-rails#update-your-app-for-render
