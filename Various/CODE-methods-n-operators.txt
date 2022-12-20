@@ -441,11 +441,16 @@ CTRL + L   , to move everything to top and just show last line, without actually
 	○ to quit without saving.
 • :help
 	○ for more information.
+• :e file.txt
+	○ opens the file to Edit it. If it doesn't exist it creates it.
 
 • :s/black/white/
-	○ search and replace 1stOcurrence of 'black' with 'white'.
+	○ search and replace 1stOcurrence of 'black' with 'white' in the current line.
 • :s/.*/<p>\r&\r<\/p>/
 	○ Wrap the line between <p> and </p>.
+• :%s/black/white/
+	○ search the whole Document and replace 1stOcurrence of 'black' with 'white'.
+  ○ /g ending, replaces All ocurrences
 • :noh
 	○ to unselect previous selection(search).
 • CTRL+q
