@@ -1,0 +1,594 @@
+		JAVASCRIPT
+=======================================
+Data type Methods
+• typeof         variable/value;      to check what type of object it is.
+Numeric Methods
+• toString(designated base);      from 2 to 36. e.g.:
+	○ Hexadecimal is base 16. Decimal is base 10. Octal is base 8. Binary is base 2. myNumber.toString(16);  // hex
+• // % .       Modulus operator!!! 
+• **.        Exponential.
+Operators
+
+		4 STRINGS
+• .chartAt(0);  to get a character at a specific index.
+• .splice();  for arrays, to add at a certain position and to delete at a certain position.
+	○ to Delete:
+		♦ arr.splice(2,1);     (what position to delete ,   how many characters after that)
+	○ to Add:
+		♦ arr.splice(6, 0, 'e');     (index to add it ,  elements to delete ,  element to be added)
+
+
+
+=======================================
+		COMMAND LINE
+=======================================
+
+• --help
+	○ after a command gives information about it.
+• whoami
+	○ show your user-name.
+• cd
+	○ change directory.
+	○ can also move directly to a dir like so: cd home/folder1
+	○ //if you type it completely from /home or root it works being in any directory.
+	○  ..  to move up one directory.
+		♦ can also join and move directly:
+		♦ cd ../folder2
+• l(L)
+	○ 
+• ls
+	○ to list all files and directories in the working dir.
+	○ -a
+		♦ to include hidden files n dirs.
+	○ -l
+		♦ to view permissions of files.
+	○ -la
+		♦ has both of the above.
+		♦ ie.: user | groupCategory | other
+			- drwxrwxr-x
+			- dir  rwx | rwx | r-x
+• tree
+	○ installed separately.
+	○ lists contents of a directory in a tree-like format.
+	○ -L level
+		♦ defines a max deph level of the directory tree.
+• mkdir
+	○ to make a directory
+	○ -p 
+		♦ to make an intermediate directory like so:
+		♦ $ mkdir -p repos/website
+• mv
+	○ to move && rename a files and directories.
+	○ //$ mv <old name/location> <new name/location>
+• rm
+	○ to delete files.
+	○ -r
+		♦ to delete directory and it's child directories.
+		♦ // or with rmdir (if empty).
+	○ -rf
+		♦ to delete a whole directory including subdirectories.
+• rmdir
+	○ remove empty directory.
+• cp
+	○ copy file.
+• touch
+	○ to create a new file in this directory.
+• pwd
+	○ prints the name of the working dir.
+• cat
+	○ concatenate & display file contents on the terminal.
+• which
+	○ to see if an executable is already present and where.
+• [_]command
+	○ a space before a command
+	○ Is to not have it get saved in the terminal history.
+• history
+	○ to view the terminal commands history.
+	○ -c
+		♦ Clear the history
+• service
+	○ To control services running on Linux
+	○ service app-name restart
+		♦ start, or stop
+• ps aux
+	○ ps aux | grep app-name
+• nice 
+	○ + app-name
+• killall -9 atom
+	○ -9  =  now
+	○ atom  <=  the name of the app
+• apt
+	○ apt-get   ? ? ?
+	○ install appname
+		♦ to install an app
+	○ update
+		♦ to look for updates.
+	○ remove
+		♦ to uninstall an app
+	○ purge appname
+		♦ to uninstall an instance with all the configuration files
+		♦ i.e.: sudo apt-get --purge remove gimp
+	○ autoremove
+		♦ to remove dependencies of a certain program that are no longer used.
+		♦ or like: sudo apt-get purge --auto-remove gimp
+	○ clean
+		♦ removes downloaded archive files
+• sudo
+	○ to use a command with admin permission
+	○ !!
+		♦ call sudo again for the previous command
+• dpkg --list
+	○ to list all of the applications installed on your computer.
+• telnet siteWithouthttps:// 443
+	○ to see to what real site a link directs you too, though port 443.
+	○ //can also be used without the '443'.
+• uname -sa
+	○ to see the complete name of my machine, with OS version.
+• lspci
+	○ to see the list of the hardware controllers installed.
+• dmesg
+	○ prints the message buffer of the kernel. The output typically contains th messages produced by the device drivers.
+• du -sh
+	○ directory usage
+	○ to get the size of the actual directory (disc usage) or you can specify another one afterwards if the case.
+	○ du -sh *
+		♦ to see the size of all the contents of the or a directory.
+	○ -d <deph>
+		♦ to define a deph of directories to check
+		♦ i.e.:  du -ha -d 1
+			- the -a is for all files
+• echo
+	○ it repeats to the terminal what you tell it to repeat.
+	○ $0
+		♦ tells you which shell you are using.
+• type
+	○ tells us whether the command we pass to it as its argument is a shell builtin, a binary executable, an alias or a function.
+• locate
+	○ to search for a filename.
+	○ BUT, reads through the mlocate.db database file which contains all file paths in your system.
+	○ -c
+		♦ stands for 'count', repeated times of name found.
+• find
+	○ powerful searching command, searches in the HD.
+	○ it can have several advanced filters like:
+		♦ -name
+		♦ -iname   , no regards to casing.
+		♦ -size
+			- -size -5M -and -size +2M
+		♦ -amin   , accessed minutes ago.
+		♦ -time
+• grep  [OPTIONS]  PATTERN  [FILE...]
+	○ stands for Global Regular Expression Print, is used to search for a word(pattern) inside a file(FILE.. (*.html)) or files(just using '*').
+	○ --color   , successful matches will be highlighted.
+	○ -i   , case insensitive.
+	○ -n   , returns the number of line of the match in the file.
+	○ -r   , recursive search, extend search to subdirectories.
+	○ best used ie.:
+		♦ grep --color -i -n -r "our products" *
+		♦ for multiple search:
+		♦ grep 'word1\|word2'
+		♦ and that plus an extension:
+		♦ grep 'wordA*'\''wordB' *.py
+		♦  grep -E 'word1|word2' *.doc
+		♦  grep -e string1 -e string2 *.pl
+		♦  egrep "word1|word2" *.c
+• ifconfig
+	○ to check ypu ip info.
+• screenfetch
+	○ installed separately.
+	○ shows system info details and linux distro logo.
+• tmux
+	○ installed separately.
+	○ to divide your terminal into multiple-view-terminal.
+• chmod  options  permissions  file-name
+	○ permissions, ie.:
+		1. chmod u=rwx,g=rx,o=r myfile
+		2. chmod 754 myfile
+			- octal, from 0 to 7.
+			- 4 stands for "read",
+			- 2 stands for "write",
+			- 1 stands for "execute", and
+			- 0 stands for "no permission."
+• chmod options:
+	○ -v
+		♦ Verbose mode; output a diagnostic message for every file processed.
+	○ --preserve-root
+		♦ Do not operate recursively on '/'.
+	○ -R, --recursive
+		♦ Change files and directories recursively.
+• chsh
+	○ is the 'change shell' command. It just needs the complete path to the new shell.
+• dig <site-name or domain>
+	○ to view the answer and info of a domain
+	○ cname <site-name or domain>
+		♦ dig cname www.alfredo.tk
+• nslookup <site-name or domain>
+	○ to view the answer, ip and info of a domain
+
+
+CTRL + L   , to move everything to top and just show last line, without actually clearing the screen.
+
+// with several tabs after a part of a name you can view same named instances.
+
+
+=======================================
+		GIT
+=======================================
+• git init 
+	○ is to be used being inside the folder of the repository to be initialized.
+• git add
+	○ -A
+		♦ to add all the files edited/or diff
+	○ .    
+		♦ to add all the changes I've made
+• git status
+• git commit 
+	○ //is like to upload with comment
+	○ -m ""
+	○ --amend
+	○ -a
+		♦ to add and commit at the same time. Like: -a -m or
+		♦ git commit -am "text"
+• git diff
+• git log
+	○ -p
+		♦ when in a long log, right when you have ':' type
+		♦ "q" to quit
+		♦ "h" for help
+		♦ "arrow down" scroll a row
+		♦ "page down" scroll a screen
+		♦ //when finished u see "END".
+	○ --oneline
+		♦ only returns the message(s) of the commit(s).
+		♦ the above s a shorthand of :  --pretty=online but the other one is much better.
+	○ --pretty=
+		♦ %an - Author name.
+		♦ %ae - Author email.
+		♦ %ad - Author date.
+		♦ %ar - Author date, relative.
+		♦ the above the same with 'c' for committer.
+	○ --graph
+		♦ displays an ASCII graph of the branch and merge history. Besides the log output.
+		♦ can be used together with other format configs.
+	○ --since=
+		♦ can be used with days, weeks, etc, and whole date formats. ie: 2.weeks
+	○ -<n>
+		♦ to show the 'n' number of last commits.
+		♦ ie: git log -2
+• git remote
+	○ add origin <URL>
+		♦ like: https://github.com/<username>/website.git
+		♦ what this does is create and alias so we don't have to type the while URL every time we push something. And that alias is origin.
+//this is no needed if the repo was cloned to local.
+	○ -v
+		♦ to view what/if an alias has been used. Basically to view the remote route.
+• git push 
+	○ -u
+		♦ for every branch that is up to date or pushed ad upstream (tracking) reference.
+		♦ git push -u origin gh-pages
+		♦ used to be able to view the rendered HTML proy online.
+		♦ so do like:
+		♦ git push -u origin master
+• //git push origin master
+	○ //origin = placeholder name for the URL of remote repository.
+	○ //master = branch of the remote repository you want to push your changes to.
+	//that was the last step.
+• git clone <URL>
+	○ used to clone an existing repo to your local machine; like so:
+	○ git clone https://github.com/NewIncome/projectNo2.git
+• git pull
+	○ 
+• git config
+	○ --global
+		♦ user.name "username"
+		♦ user.email  "email"
+		♦ user.password
+			- e.g.: git config --global user.password "password"
+		♦ credential.helper store
+			- to set globally the credetials and not be asked for them every time
+		♦ color.ui auto
+	○ --get
+		♦ anything youjust configured like user.name.
+	○ --list
+		♦ to see the list of configurations saved.
+		♦ --show-origin
+			- to also see where the info is stored.
+• git help
+	○ to get info/help for a command.
+• git branch
+	○ to check which branches exist (on my local machine).
+	○ //if an * appears by the name it means that's the branch I'm currently working on.
+	○ -a
+		♦ to view/select all.
+	○ -d <branchName>
+		♦ to delete a branch. 
+	○ -D
+		♦ delete by force, which is short for: --delete --force
+//After deleting a branch you have to push to GitHub this way:
+		♦ git push origin -d <branchName>
+	○ git branch <name>
+		♦ creates that branch
+	○ -f
+		♦ branch forcing. To directly reasign (move by force) a branch to a commit.
+	○ -r
+		♦ to act on remote-tracking branches
+• git checkout <branch name>
+	○ to move into that branch. Also to move into commits (detach HEAD).
+	○ -b
+		♦ to create a new branch and go into it (check it out) at the same time. Like so:
+		♦ git checkout -b <branch name>
+		♦ to create a new branch from another branch. Like so:
+		♦ git checkout -b <newBranchName> <toCreateFromThisBranch>
+	○ ^
+		♦ // Caret operator.
+		♦ when used after a name it references one level above, it's parent element, like so:
+		♦ git checkout master^
+		♦ or  git checkout master^^ (2levels)
+		♦ HEAD^ can also be used:
+		♦ git checkout HEAD^
+	○ ~
+		♦ to move n parents of commits to ascend, like so:
+		♦ git checkout HEAD~4
+	○ -f
+		♦ to undo any staged but unpushed changes.
+• git merge <branch name>
+	○ to merge the change made in the branch to the main code-base(the it came from).
+	○ //use it being inside of the master branch. Or inside the branch you want to merge into.
+	○ // // PUSH!! after merging.
+• git rebase
+	○ another method for merging branches.
+	○ git rebase master
+		♦ to move work from branches to master's linear sequence.
+		♦ //so in rebasing, step 1.
+	○ git rebase <branch name>
+		♦ to move the master forward in history and have it together with the branches.
+		♦ //so in rebasing, step 2.
+• git rm --cashed nameOfFile.file
+	○ to "unStage" an added file.
+	○ //Not exactly working well
+• git reset -- <filenameNroute>
+	○ to definitely UNSTAGE a file.
+	○ --hard <commit>
+		♦ git reset --hard 9437f70b
+		♦ after the reset you should use git push -f
+• git subtree push --prefix dist origin gh-pages
+	○ from desired branch, to push to github-pages a specific branch and a specific folder (dist).
+
+//When a collaborator uses rebase you have to rest your branch with:
+• git fetch origin
+• git reset --hard origin/branchName
+• git clean -f
+
+
+
+=======================================
+		VIM
+=======================================
+• i
+	○ to go into insert mode.
+• esc
+	○ to go into normal mode.
+• v
+	○ to go into visual mode.
+	○ e - used to select a word.
+	○ l - to select a letter.
+	○ d - to delete it.
+• h,j,k,l
+	○ basic movement left, up, down, left, right.
+• w,e,b
+	○ word movement.
+	○ w - to start of next word.
+	○ e - to end of next word.
+	○ b - beginning of the word.
+• num+letter
+	○ number powered movement, e.g.:
+	○ 3+w - move to start of next 3rd word.
+	○ 9+l - move forward 3 letters.
+	○ 2+b - move back to 2 beginnings of word. 
+• num+i+wordOrChar+esc
+	○ insert repeated text.
+	○ e.g.: 3+i+go+esc => gogogo.
+• f
+	○ find a word,e.g:.
+	○ f+o - finds the next 'o'.
+	○ 3+f+q - finds the next 3rd 'q'.
+• 0
+	○ cero, goes to the beginning of the line.
+• $
+	○ goes to the end of the line.
+• %
+	○ goes to the matching (, { or [ selected/under the cursor.
+• *
+	○ find the next ocurrence of word selected/under the cursor.
+• #
+	○ find the previous ocurrence of word selected/under the cursor.
+• gg
+	○ to go to the beginning of the file.
+• G
+	○ to go to the end of the file.
+	○ num+G - goes to the specified line.
+• /+word
+	○ to find a defined next word you write.
+	○ n - afterwords, is to go to the next ocurrence.
+	○ N - afterwords, is to go to the previous ocurrence. 
+	○ //for advanced cases it's possible to use regExp to find particular forms.
+• o
+	○ inserts a new next line and goes into insert mode.
+• O
+	○ inserts a new previous/before line and goes into insert mode.
+• x
+	○ deletes the char under the cursor.
+• X
+	○ deletes the char to the left of the cursor.
+• r+char
+	○ to replace a character under the cursor, without going into insert mode.
+• d
+	○ d+w- deletes the selected word.
+		♦ and also delete everything up until the nex word.
+	○ d+num+e - deletes num defined elements.
+	○ d+num+w - deletes num defined words.
+	○ also, COPIES the content selected and pastes it with p.
+• .
+	○ repeats the previous command. 
+• u
+	○ for undo.
+• ctrl+R
+• :w
+	○ to save.
+• :q
+	○ to quit.
+• :q!
+	○ to quit without saving.
+• :help
+	○ for more information.
+
+• :s/black/white/
+	○ search and replace 1stOcurrence of 'black' with 'white'.
+• :s/.*/<p>\r&\r<\/p>/
+	○ Wrap the line between <p> and </p>.
+• :noh
+	○ to unselect previous selection(search).
+• CTRL+q
+	○ for f-up when you press CTRL-s. Explanation here.
+
+
+VIMs FE (FileExplorer)
+-----------------------
+• vi ./       to acces the VIM FileExplorer     
+from the FE
+•   v         open a file with 'v' key
+• CTRL + z     exit but keep last location in buffer (works for any app)
+• fg        goes back to the VIM FE's last location (works for any app)
+• Ctrl+6     to go back to previous buffer
+• %     creates new file
+• d      creates new dir
+• R      rename
+• D     delete
+
+• :sp.     (from VIM) opens the FE horizontally.
+• :vs.     (from VIM) opens the FE vertically.
+• :bd     removes/closes selected open window.
+• :Rex   close opened file and to Resume EXploring.
+• CTRL + w    (twice) to move between open window sections.
+• Ctrl+w + / -
+	○ increase / decrease current window height (vertical).
+• Ctrl+w + > / <
+	○ increase / decrease current window width (horizontal).
+• Ctrl+w t, b, p
+	○ move to Top/Bottom/Previous window.
+• Ctrl+w + r / x
+	○ switch window positions
+• Ctrl+w + t
+	○ move current window to new tab page.
+• :res[ize] -N / +N            :vertical-res   for horizontal
+	○ works like so:
+	○ :res +5   ;   :res -5   ;   :vertical-res +20   ;   :vertical-res -20
+	○ (:vertical-resize CTRL-W_bar )
+Command to see all comands inside the NETRW.
+• :help window-move
+• or :h
+
+VIMs PLUGIN Manager
+-----------------------
+• PlugInstall
+	○ Install plugins.
+• PlugUpdate
+	○ Install or update plugins.
+• PlugStatus
+	○ List plugins and current status.
+• PlugDiff
+	○ Display changes made during updates.
+
+
+
+=======================================
+		TMUX
+=======================================
+• tmux
+	○ to create your 1st session
+• tmux new -s session_name
+	○ create a session with a name.
+• tmux ls
+	○ list currently running sessions.
+• 
+Inside of tmux
+• ctrl+b ?
+	○ list of all commands.
+• ctrl+b d
+	○ detach from current session.
+• ctrl+b c
+	○ creates new window(shell).
+• ctrl+b w
+	○ choose window from a list.
+• ctrl+b 0
+	○ switch to window 0 (by number).
+• ctrl+b %
+	○ split current pane horizontally into 2.
+• ctrl+b "
+	○ split current pane vertically into 2.
+• ctrl+b o
+	○ go to next pane.
+• ctrl+b ;
+	○ toggle between curr and prev panes.
+• ctrl+b x
+	○ close current pane.
+
+
+=======================================
+		TERMINATOR
+=======================================
+KEYBINDINGS
+• Ctrl+Shift+O
+	○ Split terminals Horizontally. 
+• Ctrl+Shift+E
+	○ Split terminals Vertically. 
+• Ctrl+Shift+up/dn/lf/rt
+	○ Move active terminal dragbar up/dn/lf/rt.
+• Ctrl+Shift+S
+	○ Hide/Show Scrollbar.
+• Ctrl+Shift+F
+	○ Search within terminal scrollback.
+• Ctrl+Tab or Ctrl+Shift+N
+	○ Move to next terminal.
+• Ctrl+Shift+Tab or Ctrl+Shift+P
+	○ Move to previous terminal.
+• Alt+up/dn/lf/rt
+	○ Move to up/dn/lf/rt terminal.
+• Ctrl+Shift+X or Ctrl+Shift+Z (zoom)
+	○ Toggle between showing all terminals and only showing the current one (maximise).
+• Ctrl+Shift+T
+	○ Open new tab.
+• Ctrl+Shift+PageDown
+	○ Swap tab position with next Tab.
+• Ctrl+Shift+PageUp
+	○ Swap tab position with previous Tab.
+• Ctrl+Shift+W
+	○ Close the current terminal. 
+• Ctrl+Shift+Q
+	○ Quits Terminator.
+
+
+=======================================
+		NMAP 4 network 
+=======================================
+step before, to know your local IP Address
+• ifconfig
+	○ by 'inet'
+
+• nmap 192.168.0/24
+	○ and only 3 octets to map the 4th for 256 addresses.
+• nmap -sP 192.168.0/24
+	○ and the 1st 3 octets to map the 4th for 256 addresses.
+	○ this is to check if there are devices on any of those addresses.
+• nmap -O 192.168.0.120
+	○ to give the info from a specific device connected to that IP address.
+• nmap 192.168.0.120
+	○ gives the open ports of the specified IP address.
+• nmap -v 192.168.0
+	○ for more details.
+• nmap -vv 192.168.0
+	○ for harder details.
+• nmap -sV 192.168.0 
+	○ for aggressive details.
+
+
