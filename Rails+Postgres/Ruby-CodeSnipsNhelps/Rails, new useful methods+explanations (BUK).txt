@@ -2,7 +2,10 @@
 			New Methods, theory
  --------------------------------------------
 -----DB:
-	$ rails db:migrate		# Creates the DB
+  $ rails db:setup    # creates the db, loads the schema, and inits it with the seed
+	$ rails db:migrate		# Creates/updates the DB & schema from the migration files
+      # • runs db:schema:dump  ; in basic it just runs the 'change' or 'up' methods from the migrations
+      # • if you specify a target version, Active Record will run the required migrations (change, up, down) until it has reached the specified version.
 	$ rails db:rollback		# Creates the DB
 	$ rails db:migrate:redo	# is the same as rolling-back then migrating
 
@@ -14,8 +17,7 @@ For backward compatibility with earlier versions of ruby prefix
 
 -----Console
   • Get all the tables in the DataBAse
-	$ ActiveRecord::Base.connection.tables
-
+	$ ActiveRecord::Base.connection.tables 
 
 -----Routes:
 ---on Resources:
