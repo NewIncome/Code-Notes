@@ -1,0 +1,15 @@
+•Mixins
+ in Ruby are used to facilitate the support of multiple inheritance by allowing modules to access instance methods of another.
+ (All the classes are modules, but not all modules are classes)
+•Module
+ is a collection of methods, constants, and class variables
+•Variables
+ ♦ Local: only accessible in the block of it's initialization; [a-z, _]
+ ♦ Global: it's scope is global == it's accessible from anywhere in the program; [$]
+ ♦ Instance: shared between mehtods of one instance; [@]
+ ♦ Class: shared between instances of one class; [@@]
+•Joins
+ are used to combine data from 2 tables
+ ♦ Left-join
+    Combnines "all" records from L-table with "matching" records from the R-table
+
