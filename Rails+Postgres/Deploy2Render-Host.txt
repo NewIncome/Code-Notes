@@ -22,7 +22,12 @@ Modify:
 5• Change script file's permissions
   $ chmod a+x bin/render-build.sh
 6• PUSH TO GIT (before deploy)
-7• Manual Deploy
+7• Use render.yaml to Deploy
+  Create the render.yaml file
+  On the Render Dashboard, go to the Blueprint page and click the New Blueprint
+  Follow instructions to select repo and branch, location of file
+  In the deploy window, set value of RAILS_MASTER_KEY to content of config/master.key
+  Aprove, and DONE! wait some time to finish deploying
 https://render.com/docs/deploy-rails#update-your-app-for-render
 
 ~~ ~~ ~~ ~~ ~~ MANUAL DEPLOY through Render Dashboard ~~ ~~ ~~ ~~ ~~
