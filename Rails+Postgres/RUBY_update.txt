@@ -18,3 +18,9 @@ Update with RBENV
   
 - Change a local version of ruby
   $ rbenv local 3.0.0
+
+- List latest stable version
+  $ rbenv install -l
+- List all local versions
+  $ rbenv install -L
+
