@@ -20,6 +20,17 @@ S - E - C - O - N - D   !!!!!!!!!
       * and the whole command to make the .rubocop.yml
   3.- install stylelint, ..same..
       * and the whole command to make the .stylelintrc.json
+  *4.- install the required 1st-runs in each job, for each linter
+      linters: lighthouse | webhint | stylelint | eslint | nodechecker
+
+
+new T - H - I - R - D   !!!!!!!!!
+           for CI (tests) with github worklows
+  0.- Have the config/database.yml correctly setup: userNpassword can be setup on github
+  1.- Create a file for a github-workflow config: .github/workflows/ci-config.yml
+      + add ruby, postgres, redis services; as needed(only Front-End -> only rubyService)
+  2.- Push changes
+  3.- Add Branch protection rule on Github (only for a GithubTeam or Enterprise acc)
 
 
 T - H - I - R - D   !!!!!!!!!
@@ -43,3 +54,6 @@ T - H - I - R - D   !!!!!!!!!
 
 WorkFlows Linter.yml -Link
 https://github.com/microverseinc/linters-config/blob/master/ror/.github/workflows/linters.yml
+
+Updated Linters, for Github Workflows
+https://github.com/wwwdrt/MicroverseCLI/blob/master/.config/Linters/.github/workflows/linters.yml
