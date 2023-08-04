@@ -1,0 +1,99 @@
+To initialize an HTML project with Node & Webpack:
+
+1. Create the package.json with default values
+  $ npm init --yes
+2. Install Webpack, as a development dependency(not for use in Production)
+  $ npm i webpack webpack-cli --save-dev
+3. Create webpack.config.js with the code(to create the single output file):
+module.exports = { 
+  mode: 'development', 
+  entry: './index.js', 
+  output: { 
+    filename: 'main.js', 
+    publicPath: 'dist' 
+  }
+};
+4. Install Babel to transpile code languages,
+  @babel/preset-env - to define which new JS feats to transpile
+  babel-loader - to enable babel to work with webpack
+  $ npm install @babel/core @babel/preset-env babel-loader --save-dev
+5. Configure webpack to use babel-loader:
+module.exports = {
+  mode: 'development',
+  entry: './index.js',
+  output: {
+    filename: 'main.js',
+    publicPath: 'dist'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+    ]
+  }
+};
+6. Use a Task Runner (npm scripts), add the following to the package.json:
+"scripts": { 
+  "test": "echo \"Error: no test specified\" && exit 1", 
+  "build": "webpack --progress --mode=production", // to run webpack
+  "watch": "webpack --progress --watch"  // to re-run webpack with each change
+}, 
+6.1 To run the 'build' script:
+  $ npm run build
+7. Install webpack-dev-server, for simple web-server with live reloading
+  $ npm install webpack-dev-server --save-dev
+7.1 Add the script to run the server
+  "server": "webpack-dev-server --open"
+7.2 Add the path of the html file to be served, in the wepack.config
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public'),
+  },
+
+/* for images...
+8. Install file-loader and image-loader
+  file-loader, to resolves import/require() into a url and emits the file
+  image-loader, to minify/compress images before building
+  $ npm install file-loader --save-dev
+8.1 Add corresponding rules
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+    ],
+  },
+}; 
+9. Install an image loader, to minify/compress images before building
+ $ npm install image-webpack-loader --save-dev
+9.1 Add corresponding rules, add the image-loader, chained after the file-loader:
+rules: [{
+  test: /\.(gif|png|jpe?g|svg)$/i,
+  use: [
+    'file-loader',
+    {
+      loader: 'image-webpack-loader',
+      options: {
+        bypassOnDebug: true, // webpack@1.x
+        disable: true, // webpack@2.x and newer
+      },
+    },
+  ],
+}]
+*/
+10. Install css-loader, to import a css file from within a JS module
+  $ npm install --save-dev style-loader css-loader 
