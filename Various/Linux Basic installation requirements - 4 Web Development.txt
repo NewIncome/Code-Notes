@@ -45,6 +45,7 @@ sudo curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercont
       Inside VIM run :PlugInstall
       -If error saying 'unknown function plug#end' run:
       $ chmod -R 0755 ~/.vim/
+      -* ALSO, NEEDDS 'git' installed !!!! IF not it can't run plugin commands
       * - add the 'set background=dark' code line in the .vimrc, to always initiate vim
       with background in dark-mode. Can change it inside vim with same command.
       * - and for a better contrast add also: let g:gruvbox_contrast_dark = 'medium'
