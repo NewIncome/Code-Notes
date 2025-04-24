@@ -1,0 +1,15 @@
+- Procedure -
+-------------
+To Deploy a React app to GitHub Pages
+
+• Install the gh-pages package. Which allows us to publish build files into a gh-pages branch on GitHub
+  $ npm install gh-pages --save-dev
+• Adding the deploy scripts
+  ○  configure the package.json file to point our GitHub repository to the location where our React app will be deployed
+  ○  add 'predeploy' and 'deploy' scripts to the package.json file
+    ♦  The predeploy script is used to bundle the React application
+      "predeploy" : "npm run build",
+    ♦  The deploy script deploys the bundled file
+      "deploy" : "gh-pages -d build",
+  ○  In the package.json file, add a homepage property that follows this structure: http://{github-username}.github.io/{repo-name}
+• Modify the branch to deploy the page from, to: 'gh-pages'
