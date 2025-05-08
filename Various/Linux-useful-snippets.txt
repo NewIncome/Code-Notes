@@ -1,0 +1,11 @@
+/*
+ * To change date/time to a desired date in WSL2
+ * and switch it back to the hardware defined date
+ */
+//To check current date-time
+$ date
+//To set a desired date-time
+$ sudo date -s "2025-05-06 12:11:00"
+//To set date-time to the current hardware date
+$ sudo hwclock -s
+
