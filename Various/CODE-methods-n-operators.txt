@@ -1,3 +1,17 @@
+Table of Contents:
+------------------
+line
+----
+ 37 - Command Line
+229 - GIT
+379 - VIM
+474 - Vim's FE
+512 - Vim Plugin Manager
+526 - TMUX
+559 - Terminator
+593 - NMAP 4 network
+
+
 		JAVASCRIPT
 =======================================
 Data type Methods
@@ -457,7 +471,7 @@ CTRL + L   , to move everything to top and just show last line, without actually
 	○ for f-up when you press CTRL-s. Explanation here.
 
 
-VIMs FE (FileExplorer)
+VIMs FileExplorer (Netrw)
 -----------------------
 • vi ./       to acces the VIM FileExplorer     
 from the FE
@@ -475,6 +489,8 @@ from the FE
 • :bd     removes/closes selected open window.
 • :Rex   close opened file and to Resume EXploring.
 • CTRL + w    (twice) to move between open window sections.
+• Ctrl + l
+	○ refresh current directory
 • Ctrl+w + / -
 	○ increase / decrease current window height (vertical).
 • Ctrl+w + > / <
