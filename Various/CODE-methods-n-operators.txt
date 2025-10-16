@@ -367,6 +367,19 @@ CTRL + L   , to move everything to top and just show last line, without actually
 		♦ after the reset you should use git push -f
 • git subtree push --prefix dist origin gh-pages
 	○ from desired branch, to push to github-pages a specific branch and a specific folder (dist).
+• stash
+  ○ list ,  display all stashes saved in your local repository(in HDD memory)
+    ◙ in this format: stash@{0}: This is the most recent stash you created
+    ◙ The text after the colon (:) shows the branch name and the commit hash of the commit you were
+    on when the stash was created
+        stash@{0}: WIP on feature/new-ui: 8d2c0e8 initial wireframe
+  ○ pop,  Applies the most recent stash
+  ○ show <stash_id>,  to see a summary of files changed
+    ◙ -p ,  To see the full diff (the actual code changes)
+  ○ apply <stash_id>,  restores the changes to your working directory but keeps the stash in the list
+    ◙ This is useful if you want to apply the same stashed changes to multiple branches
+  ○ drop <stash_id>,  Removes a specific stash from the list without applying the changes
+  ○ clear,  Removes all stashed entries at once
 
 //When a collaborator uses rebase you have to rest your branch with:
 • git fetch origin
